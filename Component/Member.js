@@ -10,6 +10,7 @@ import $ from 'jquery'
 const MemberList = ({ members, isAnimation }) => {
     const [memberList, setMemberList] = useState([]);
     const [scrollValue, setScrollValue] = useState(0)
+    const [opacity, setOpacity] = useState({ opacity: '0' })
 
     useEffect(() => {
         const tempList = []
@@ -17,6 +18,10 @@ const MemberList = ({ members, isAnimation }) => {
             tempList.push(member.properties)
         }))
         setMemberList(tempList)
+
+        if (!isAnimation) {
+            setOpacity(state => ({ ...state, opacity: '1' }))
+        }
     }, [])
 
     useEffect(() => {
@@ -30,6 +35,8 @@ const MemberList = ({ members, isAnimation }) => {
             delayScrollAnime('.delayShowMember', 'listAnimation', scrollValue)
         }
     }, [scrollValue])
+
+
     return (
         <>
             <h2 className={`${styles.heading}`}>Member</h2>
@@ -45,7 +52,7 @@ const MemberList = ({ members, isAnimation }) => {
                     const imgUrl = member.image.files[0] ? member.image.files[0].file.url : ''
                     const twitterUrl = member.twitterID.rich_text[0].plain_text
                     return (
-                        <div className={`${styles.list}`}>
+                        <div className={`${styles.list}`} style={opacity}>
                             <div className={`${styles.listImage}`}>
                                 <Image
                                     src={`${imgUrl}`}

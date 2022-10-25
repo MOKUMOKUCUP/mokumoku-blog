@@ -17,8 +17,6 @@ export default function Home({ posts, members }) {
     i++
   }, [i])
 
-  console.log(i)
-
   if (i === 0) {
     return (
       <div>

@@ -5,15 +5,20 @@ import styles from "../pages/index.module.css";
 import delayScrollAnime from '../styles/style';
 import $ from 'jquery'
 
-
-
 const BlogList = ({ posts, isAnimation }) => {
     const [scrollValue, setScrollValue] = useState(0)
+    const [opacity, setOpacity] = useState({ opacity: '0' })
 
     const blogLinkStyle = {
         display: 'block',
         textAlign: 'right'
     }
+
+    useEffect(() => {
+        if (!isAnimation) {
+            setOpacity(state => ({ ...state, opacity: '1' }))
+        }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -31,7 +36,7 @@ const BlogList = ({ posts, isAnimation }) => {
     return (
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
-            <ol className={`${styles.posts} delayShowBlog`}>
+            <ol className={`${styles.posts} delayShowBlog`} style={opacity}>
                 {posts.map((post) => {
                     if (!post.properties.isPublish.checkbox) { return; }
 

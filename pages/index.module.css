@@ -32,7 +32,6 @@
 }
 
 .list {
-  opacity: 0;
   padding: 30px;
   width: 32%;
   background-color: rgba(13, 62, 255, 0.05);
@@ -94,7 +93,6 @@
 
 .post {
   margin-bottom: 50px;
-  opacity: 0;
 }
 
 .postTitle {
