@@ -1,10 +1,10 @@
 import { getDatabase } from "../lib/notion";
 import styles from "./index.module.css";
-import Header from "./Component/Header";
-import HeadContent from "./Component/HeadContent";
-import BlogList from "./Component/BlogList";
-import MemberList from "./Component/Member";
-import Footer from "./Component/Footer";
+import Header from "../Component/Header";
+import HeadContent from "../Component/HeadContent";
+import BlogList from "../Component/BlogList";
+import MemberList from "../Component/Member";
+import Footer from "../Component/Footer";
 
 
 

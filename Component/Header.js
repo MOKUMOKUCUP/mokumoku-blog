@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import styles from "../index.module.css";
+import styles from "../pages/index.module.css";
 import Link from 'next/link';
-import delayScrollAnime from '../../styles/style';
+import delayScrollAnime from '../styles/style';
 import { BrowserView, isBrowser, isMobile, MobileView } from 'react-device-detect';
 
 

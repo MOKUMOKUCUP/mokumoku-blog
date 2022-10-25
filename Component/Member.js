@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
-import styles from "../index.module.css";
+import styles from "../pages/index.module.css";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
-import delayScrollAnime from '../../styles/style';
+import delayScrollAnime from '../styles/style';
 
 const MemberList = ({ members }) => {
     const [memberList, setMemberList] = useState([]);

@@ -3,8 +3,8 @@ import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
 import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
-import HeadContent from "./Component/HeadContent";
-import Header from "./Component/Header";
+import HeadContent from "../Component/HeadContent";
+import Header from "../Component/Header";
 
 export const Text = ({ text }) => {
   if (!text) {

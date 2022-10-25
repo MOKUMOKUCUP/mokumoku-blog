@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import Link from "next/link";
-import { Text } from "../[id]";
-import styles from "../index.module.css";
-import delayScrollAnime from '../../styles/style';
+import { Text } from "../pages/[id]";
+import styles from "../pages/index.module.css";
+import delayScrollAnime from '../styles/style';
 
 const BlogList = ({ posts }) => {
     const blogLinkStyle = {
