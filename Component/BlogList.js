@@ -28,6 +28,7 @@ const BlogList = ({ posts, isAnimation }) => {
         });
 
         if (isAnimation) {
+
             delayScrollAnime('.delayShowBlog', 'listAnimation', scrollValue)
         }
     }, [scrollValue])
@@ -36,7 +37,7 @@ const BlogList = ({ posts, isAnimation }) => {
     return (
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
-            <ol className={`${styles.posts} delayShowBlog`} style={opacity}>
+            <ol className={`${styles.posts} delayShowBlog`} >
                 {posts.map((post) => {
                     if (!post.properties.isPublish.checkbox) { return; }
 
@@ -47,7 +48,7 @@ const BlogList = ({ posts, isAnimation }) => {
                     })
 
                     return (
-                        <li key={post.id} className={`${styles.post}`} >
+                        <li key={post.id} className={`${styles.post}`} style={opacity}>
                             <h3 className={styles.postTitle}>
                                 <Link href={`/${post.id}`}>
                                     <a>
