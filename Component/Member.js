@@ -5,22 +5,31 @@ import styles from "../pages/index.module.css";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import delayScrollAnime from '../styles/style';
+import $ from 'jquery'
 
-const MemberList = ({ members }) => {
+const MemberList = ({ members, isAnimation }) => {
     const [memberList, setMemberList] = useState([]);
+    const [scrollValue, setScrollValue] = useState(0)
+
     useEffect(() => {
         const tempList = []
         members.map((member => {
             tempList.push(member.properties)
         }))
         setMemberList(tempList)
-        window.addEventListener('scroll', () => {
-            delayScrollAnime('.delayShowMember', 'listAnimation')
-        })
     }, [])
 
-    console.log(memberList)
+    useEffect(() => {
+        window.addEventListener('scroll', function () {
+            if (isAnimation) {
+                setScrollValue($(window).scrollTop())
+            }
+        });
 
+        if (isAnimation) {
+            delayScrollAnime('.delayShowMember', 'listAnimation', scrollValue)
+        }
+    }, [scrollValue])
     return (
         <>
             <h2 className={`${styles.heading}`}>Member</h2>

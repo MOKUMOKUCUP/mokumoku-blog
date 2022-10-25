@@ -56,7 +56,7 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
-  console.log(type)
+
   switch (type) {
     case "paragraph":
       return (

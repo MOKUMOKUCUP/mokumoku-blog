@@ -1,20 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 import delayScrollAnime from '../styles/style';
+import $ from 'jquery'
 
-const BlogList = ({ posts }) => {
+
+
+const BlogList = ({ posts, isAnimation }) => {
+    const [scrollValue, setScrollValue] = useState(0)
+
     const blogLinkStyle = {
         display: 'block',
         textAlign: 'right'
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            delayScrollAnime('.delayShowBlog', 'listAnimation')
-        })
-    }, [])
+        window.addEventListener('scroll', function () {
+            if (isAnimation) {
+                setScrollValue($(window).scrollTop())
+            }
+        });
+
+        if (isAnimation) {
+            delayScrollAnime('.delayShowBlog', 'listAnimation', scrollValue)
+        }
+    }, [scrollValue])
 
 
     return (

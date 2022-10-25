@@ -5,25 +5,47 @@ import HeadContent from "../Component/HeadContent";
 import BlogList from "../Component/BlogList";
 import MemberList from "../Component/Member";
 import Footer from "../Component/Footer";
+import { useEffect, useState } from "react";
 
 
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
-
+let i = 0
 export default function Home({ posts, members }) {
+  useEffect(() => {
+    i++
+  }, [i])
 
-  return (
-    <div>
-      <HeadContent title={'HOME'} />
-      <Header />
-      <main className={`${styles.container}`} >
-        <BlogList posts={posts} />
-        <MemberList members={members} />
-      </main>
-      <Footer />
-    </div>
-  );
+  console.log(i)
+
+  if (i === 0) {
+    return (
+      <div>
+        <HeadContent title={'HOME'} />
+        <Header isAnimation={true} />
+        <main className={`${styles.container}`} >
+          <BlogList posts={posts} isAnimation={true} />
+          <MemberList members={members} isAnimation={true} />
+        </main>
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <HeadContent title={'HOME'} />
+        <Header isAnimation={false} />
+        <main className={`${styles.container}`} >
+          <BlogList posts={posts} isAnimation={false} />
+          <MemberList members={members} isAnimation={false} />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+
 }
 
 

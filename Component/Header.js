@@ -19,7 +19,7 @@ const Header = ({ isAnimation }) => {
     if (isAnimation === undefined) {
         isAnimation = true
     }
-
+    
     useEffect(() => {
         if (isAnimation && isBrowser) {
             delayScrollAnime('.popUp', 'titleAnimation')
