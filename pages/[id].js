@@ -1,9 +1,10 @@
 import { Fragment } from "react";
-import Head from "next/head";
 import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
-import { databaseId } from "./index.js";
+import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
+import HeadContent from "./Component/HeadContent";
+import Header from "./Component/Header";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -55,7 +56,7 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
-
+  console.log(type)
   switch (type) {
     case "paragraph":
       return (
@@ -153,14 +154,48 @@ const renderBlock = (block) => {
     case "bookmark":
       const href = value.url
       return (
-        <a href={ href } target="_brank" className={styles.bookmark}>
-          { href }
+        <a href={href} target="_brank" className={styles.bookmark}>
+          {href}
         </a>
       );
+    case "table":
+      const columList = []
+      const tableList = []
+      value.children.map((item) => {
+        columList.push(item)
+      })
+
+      for (let i = 0; i < columList.length; i++) {
+        const item = columList[i].table_row.cells
+        const itemList = []
+        for (let j = 0; j < item.length; j++) {
+          itemList.push(item[j][0].plain_text)
+        }
+        tableList.push(itemList)
+      }
+
+      return (
+        < div >
+          <table>
+            <tbody>
+              {tableList.slice().map((item, index) => {
+                return (
+                  <tr key={index}>
+                    {item.map((i) => {
+                      return <td>{i}</td>
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div >
+      );
+    case 'unsupported':
+      return
     default:
-      return `❌ Unsupported block (${
-        type === "unsupported" ? "unsupported by Notion API" : type
-      })`;
+      return `❌ Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
+        })`;
   }
 };
 
@@ -170,11 +205,8 @@ export default function Post({ page, blocks }) {
   }
   return (
     <div>
-      <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <HeadContent title={'ブログページ'} />
+      <Header isAnimation={false} />
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
@@ -193,7 +225,7 @@ export default function Post({ page, blocks }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(databaseId);
+  const database = await getDatabase(postDatabaseId);
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
     fallback: true,

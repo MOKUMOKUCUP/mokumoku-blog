@@ -1,0 +1,61 @@
+import React, { useEffect } from 'react'
+import Link from "next/link";
+import { Text } from "../[id]";
+import styles from "../index.module.css";
+import delayScrollAnime from '../../styles/style';
+
+const BlogList = ({ posts }) => {
+    const blogLinkStyle = {
+        display: 'block',
+        textAlign: 'right'
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            delayScrollAnime('.delayShowBlog', 'listAnimation')
+        })
+    }, [])
+
+
+    return (
+        <>
+            <h2 className={`${styles.heading}`}>NEWS</h2>
+            <ol className={`${styles.posts} delayShowBlog`}>
+                {posts.map((post) => {
+                    if (!post.properties.isPublish.checkbox) { return; }
+
+                    const date = new Date(post.last_edited_time).toLocaleDateString('ja-JP')
+                    const authers = []
+                    post.properties.Auther.multi_select.map((auther) => {
+                        authers.push(auther.name)
+                    })
+
+                    return (
+                        <li key={post.id} className={`${styles.post}`} >
+                            <h3 className={styles.postTitle}>
+                                <Link href={`/${post.id}`}>
+                                    <a>
+                                        <Text text={post.properties.Name.title} />
+                                    </a>
+                                </Link>
+                            </h3>
+                            <div className={styles.postDescription}>
+                                <p >{`Last Update: ${date}`}</p>
+                                <p>{`auther: `}
+                                    {authers.map((auther, index) => (
+                                        <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
+                                    ))}
+                                </p>
+                            </div>
+                            <Link href={`/${post.id}`}>
+                                <a style={blogLinkStyle}> 記事を読む →</a>
+                            </Link>
+                        </li>
+                    );
+                })}
+            </ol>
+        </>
+    )
+}
+
+export default BlogList

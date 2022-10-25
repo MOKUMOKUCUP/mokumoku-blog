@@ -11,12 +11,51 @@
 }
 
 .header {
+  font-family: 'Rampart One', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .header p {
-  opacity: 0.7;
+  opacity: 0.9;
   line-height: 1.5;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.list {
+  opacity: 0;
+  padding: 30px;
+  width: 32%;
+  background-color: rgba(13, 62, 255, 0.05);
+  border: 3px dotted rgba(13, 62, 255, 0.3);
+  border-radius: 10px;
+}
+
+.listItem {
+  padding-left: 10px;
+}
+
+.listImage {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.listImage img {
+  border-radius: 30px;
+}
+
+.twitterIcon {
+  cursor: pointer;
+  font-size: 2rem;
 }
 
 .plus {
@@ -34,6 +73,12 @@
   letter-spacing: 0.5px;
 }
 
+/* 959px以下に適用されるCSS（タブレット用） */
+@media screen and (max-width: 959px) {}
+
+/* 480px以下に適用されるCSS（スマホ用） */
+@media screen and (max-width: 480px) {}
+
 @media (prefers-color-scheme: dark) {
   .heading {
     border-color: #343539;
@@ -44,10 +89,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .post {
   margin-bottom: 50px;
+  opacity: 0;
 }
 
 .postTitle {
