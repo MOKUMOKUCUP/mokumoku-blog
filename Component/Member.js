@@ -69,7 +69,6 @@ const MemberList = ({ members, isAnimation }) => {
                                     <IconContext.Provider value={{ color: "#1E9BEF", className: `${styles.twitterIcon}` }}>
                                         <AiFillTwitterCircle width={40} height={40} />
                                     </IconContext.Provider>
-
                                 </div>
                             </Link>
                         </div>

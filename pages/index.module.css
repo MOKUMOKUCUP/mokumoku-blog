@@ -76,9 +76,21 @@
 @media screen and (max-width: 959px) {}
 
 /* 480px以下に適用されるCSS（スマホ用） */
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+align-content: center;
+  }
 
-@media (prefers-color-scheme: dark) {
+  .list {
+    padding: 30px;
+    width: 100%;
+    margin: 1rem;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
   .heading {
     border-color: #343539;
   }
@@ -108,4 +120,4 @@
   margin-top: 0;
   margin-bottom: 12px;
   opacity: 0.65;
-}
+} */
