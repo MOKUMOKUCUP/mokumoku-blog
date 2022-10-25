@@ -8,9 +8,9 @@ const Footer = () => {
         <address>
           <span>© MOKUMOKU 2022- All Rights Reserved.</span>
         </address>
-        <p className="ver">last update 2022.9.1</p>
+        <p>code is <Link href={'https://github.com/lovelovetrb/mokumoku-blog'}></Link></p>
         <p>お問合せは
-          <Link href={'https://www.google.com/'}>こちら</Link>
+          {/* <Link href={'https://www.google.com/'}>こちら</Link> */}
         </p>
       </div>
     </footer>
