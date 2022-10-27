@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "../pages/index.module.css";
 import Link from 'next/link';
 import delayScrollAnime from '../styles/style';
-import { BrowserView, isBrowser, isMobile, MobileView } from 'react-device-detect';
+import { BrowserView, isBrowser, isMobile, isTablet, MobileView } from 'react-device-detect';
 
 
 const Header = ({ isAnimation }) => {
@@ -19,7 +19,7 @@ const Header = ({ isAnimation }) => {
     if (isAnimation === undefined) {
         isAnimation = true
     }
-    
+
     useEffect(() => {
         if (isAnimation && isBrowser) {
             delayScrollAnime('.popUp', 'titleAnimation')
@@ -32,8 +32,8 @@ const Header = ({ isAnimation }) => {
 
     return (
         <header className={styles.header}>
-            <Link href="/">
-                <BrowserView>
+            {isBrowser && !isTablet && (
+                <Link href="/">
                     <div className={`popUp`} style={boxStyle}>
                         <span className='box'>M</span>
                         <span className='box'>O</span>
@@ -47,14 +47,15 @@ const Header = ({ isAnimation }) => {
                     <h3>
                         MOKUMOKU CUP 実行委員会のホームページです
                     </h3>
-                </BrowserView>
-            </Link>
-            <Link href="/">
-                <MobileView>
-                    <h1 style={boxStyle}>MOKUMOKU</h1>
-                    <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
-                </MobileView>
-            </Link>
+                </Link>
+            )}
+            {isTablet || isMobile && (
+                <Link href="/">
+                    <MobileView>
+                        <h1 style={boxStyle}>MOKUMOKU</h1>
+                        <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
+                    </MobileView>
+                </Link>)}
         </header >
     )
 }
