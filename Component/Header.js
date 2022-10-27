@@ -32,33 +32,34 @@ const Header = ({ isAnimation }) => {
 
     return (
         <header className={styles.header}>
-            {isTablet && (<>タブレット</>)}
-            {isMobile && (<>携帯</>)}
-            {isBrowser && (<>ブラウザ</>)}
-            {isBrowser && !isTablet && (
-                <Link href="/">
-                    <div className={`popUp`} style={boxStyle}>
-                        <span className='box'>M</span>
-                        <span className='box'>O</span>
-                        <span className='box'>K</span>
-                        <span className='box'>U</span>
-                        <span className='box'>M</span>
-                        <span className='box'>O</span>
-                        <span className='box'>K</span>
-                        <span className='box'>U</span>
-                    </div>
-                    <h3>
-                        MOKUMOKU CUP 実行委員会のホームページです
-                    </h3>
-                </Link>
-            )}
-            {isTablet || isMobile && (
-                <Link href="/">
-                    <MobileView>
+            <Link href="/">
+                {isTablet && (<>タブレット</>)}
+                {isMobile && (<>携帯</>)}
+                {isBrowser && (<>ブラウザ</>)}
+                {isBrowser && !isTablet && (
+                    <>
+                        <div className={`popUp`} style={boxStyle}>
+                            <span className='box'>M</span>
+                            <span className='box'>O</span>
+                            <span className='box'>K</span>
+                            <span className='box'>U</span>
+                            <span className='box'>M</span>
+                            <span className='box'>O</span>
+                            <span className='box'>K</span>
+                            <span className='box'>U</span>
+                        </div>
+                        <h3>
+                            MOKUMOKU CUP 実行委員会のホームページです
+                        </h3>
+                    </>
+                )}
+                {isTablet || isMobile && (
+                    <>
                         <h1 style={boxStyle}>MOKUMOKU</h1>
                         <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
-                    </MobileView>
-                </Link>)}
+                    </>
+                )}
+            </Link>
         </header >
     )
 }
