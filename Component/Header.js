@@ -32,10 +32,6 @@ const Header = ({ isAnimation }) => {
 
     return (
         <header className={styles.header}>
-
-            {isTablet && (<><h3>タブレット</h3></>)}
-            {isMobile && (<><h3>携帯</h3></>)}
-            {isBrowser && (<><h3>ブラウザ</h3></>)}
             {isBrowser && !isTablet && (
                 <>
                     <Link href="/">
@@ -55,7 +51,7 @@ const Header = ({ isAnimation }) => {
                     </h3>
                 </>
             )}
-            {isTablet || isMobile && (
+            {isMobile && (
                 <>
                     <Link href="/"><h1 style={boxStyle}>MOKUMOKU</h1></Link>
                     <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
