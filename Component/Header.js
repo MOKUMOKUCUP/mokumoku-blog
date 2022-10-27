@@ -32,12 +32,13 @@ const Header = ({ isAnimation }) => {
 
     return (
         <header className={styles.header}>
-            <Link href="/">
-                {isTablet && (<><h3>タブレット</h3></>)}
-                {isMobile && (<><h3>携帯</h3></>)}
-                {isBrowser && (<><h3>ブラウザ</h3></>)}
-                {isBrowser && !isTablet && (
-                    <>
+
+            {isTablet && (<><h3>タブレット</h3></>)}
+            {isMobile && (<><h3>携帯</h3></>)}
+            {isBrowser && (<><h3>ブラウザ</h3></>)}
+            {isBrowser && !isTablet && (
+                <>
+                    <Link href="/">
                         <div className={`popUp`} style={boxStyle}>
                             <span className='box'>M</span>
                             <span className='box'>O</span>
@@ -48,18 +49,18 @@ const Header = ({ isAnimation }) => {
                             <span className='box'>K</span>
                             <span className='box'>U</span>
                         </div>
-                        <h3>
-                            MOKUMOKU CUP 実行委員会のホームページです
-                        </h3>
-                    </>
-                )}
-                {isTablet || isMobile && (
-                    <>
-                        <h1 style={boxStyle}>MOKUMOKU</h1>
-                        <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
-                    </>
-                )}
-            </Link>
+                    </Link>
+                    <h3>
+                        MOKUMOKU CUP 実行委員会のホームページです
+                    </h3>
+                </>
+            )}
+            {isTablet || isMobile && (
+                <>
+                    <Link href="/"><h1 style={boxStyle}>MOKUMOKU</h1></Link>
+                    <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです</p>
+                </>
+            )}
         </header >
     )
 }
