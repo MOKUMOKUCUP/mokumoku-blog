@@ -32,6 +32,9 @@ const Header = ({ isAnimation }) => {
 
     return (
         <header className={styles.header}>
+            {isTablet && (<>タブレット</>)}
+            {isMobile && (<>携帯</>)}
+            {isBrowser && (<>ブラウザ</>)}
             {isBrowser && !isTablet && (
                 <Link href="/">
                     <div className={`popUp`} style={boxStyle}>
