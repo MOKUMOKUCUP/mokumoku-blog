@@ -60,7 +60,7 @@ const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p>
+        <p className={styles.paragraph}>
           <Text text={value.text} />
         </p>
       );
