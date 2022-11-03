@@ -5,8 +5,7 @@ import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
+
 
 export const Text = ({ text }) => {
   if (!text) {

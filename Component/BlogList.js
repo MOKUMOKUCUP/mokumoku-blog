@@ -11,7 +11,8 @@ const BlogList = ({ posts, isAnimation }) => {
 
     const blogLinkStyle = {
         display: 'block',
-        textAlign: 'right'
+        textAlign: 'right',
+        opacity: '1'
     }
 
     useEffect(() => {
