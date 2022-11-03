@@ -23,7 +23,7 @@ export default function Home({ posts, members }) {
         <HeadContent title={'HOME'} />
         <Header isAnimation={true} />
         <main className={`${styles.container}`} >
-          <BlogList posts={posts} isAnimation={true} />
+          <BlogList posts={posts} isAnimation={false} />
           {/* <MemberList members={members} isAnimation={true} /> */}
         </main>
         <Footer />

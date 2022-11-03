@@ -32,12 +32,19 @@
   .name {
     font-size: 24px;
   }
+
+  .paragraph {
+    font-size: 0.9rem;
+  }
+}
+
+.heading {
+  margin-top: 5rem;
 }
 
 .paragraph {
   line-height: 2rem;
   margin: 1rem 0;
-  font-size: 0.9rem;
 }
 
 .back {

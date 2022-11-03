@@ -5,6 +5,8 @@ import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -66,19 +68,19 @@ const renderBlock = (block) => {
       );
     case "heading_1":
       return (
-        <h1>
+        <h1 className={styles.heading}>
           <Text text={value.text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2>
+        <h2 className={styles.heading}>
           <Text text={value.text} />
         </h2>
       );
     case "heading_3":
       return (
-        <h3>
+        <h3 className={styles.heading}>
           <Text text={value.text} />
         </h3>
       );
@@ -200,6 +202,7 @@ const renderBlock = (block) => {
 };
 
 export default function Post({ page, blocks }) {
+
   if (!page || !blocks) {
     return <div />;
   }
