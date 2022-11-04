@@ -2,38 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
-import delayScrollAnime from '../styles/style';
-import $ from 'jquery'
 
 const BlogList = ({ posts, isAnimation }) => {
-    const [scrollValue, setScrollValue] = useState(0)
-    const [opacity, setOpacity] = useState({ opacity: '0' })
-
-    const blogLinkStyle = {
-        display: 'block',
-        textAlign: 'right',
-        opacity: '1'
-    }
-
-    useEffect(() => {
-        if (!isAnimation) {
-            setOpacity(state => ({ ...state, opacity: '1' }))
-        }
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('scroll', function () {
-            if (isAnimation) {
-                setScrollValue($(window).scrollTop())
-            }
-        });
-
-        if (isAnimation) {
-
-            delayScrollAnime('.delayShowBlog', 'listAnimation', scrollValue)
-        }
-    }, [scrollValue])
-
 
     return (
         <>
@@ -50,7 +20,7 @@ const BlogList = ({ posts, isAnimation }) => {
                     })
 
                     return (
-                        <li key={post.id} className={`${styles.post}`} style={opacity}>
+                        <li key={post.id} className={`${styles.post}`} >
                             <h3 className={styles.postTitle}>
                                 <Link href={`/${post.id}`}>
                                     <a>
@@ -67,7 +37,7 @@ const BlogList = ({ posts, isAnimation }) => {
                                 </p>
                             </div>
                             <Link href={`/${post.id}`}>
-                                <a style={blogLinkStyle}> 記事を読む →</a>
+                                <a className={styles.blogLink}> 記事を読む →</a>
                             </Link>
                         </li>
                     );

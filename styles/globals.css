@@ -5,26 +5,25 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-
-img {
-  position: static !important;
-  width: 100% !important;
-  height: auto !important;
+ol {
+  padding: 0;
 }
 
-@media screen and (max-width: 480px) {
 
+@media screen and (max-width: 480px) {
   body {
     font-size: 0.85rem;
   }
 }
 
 body {
-  background-color: white;
+  background-color: #fff;
   color: black;
 }
 
 footer {
+  background-color: #565656;
+  color: #fff;
   opacity: 0.6;
   text-align: center;
   padding: 1rem 0;
@@ -39,12 +38,9 @@ footer span {
   margin: 0.5rem;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-color: rgb(24, 24, 31);
-    color: rgb(238, 238, 238);
-  }
-} */
+footer a {
+  color: rgb(225, 161, 102);
+}
 
 table {
   width: 100%;

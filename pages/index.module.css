@@ -1,7 +1,8 @@
 .container {
   padding: 0 20px;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+  width: 90%;
 }
 
 .logos {
@@ -15,6 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
   margin-bottom: 50px;
   text-align: center;
 }
@@ -63,13 +65,67 @@
 }
 
 .heading {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #dedede;
-  text-transform: uppercase;
-  font-size: 15px;
+  border-bottom: solid 3px rgb(163, 182, 227);
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.heading:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px rgb(19, 61, 159);
+  bottom: -3px;
+  width: 20%;
+
+}
+
+.post {
+  list-style: none;
+  padding: 0 .5rem;
+  margin-top: 2rem;
+}
+
+.postTitle {
+  position: relative;
+  padding-left: 25px;
+  padding-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.postTitle:before {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: solid 15px transparent;
+  border-bottom: solid 15px rgb(119, 195, 223);
+}
+
+.postTitle:after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 10px;
+  width: 70%;
+  border-bottom: solid 3px rgb(119, 195, 223);
+}
+
+.postTitle a {
+  color: #000000;
+}
+
+.blogLink {
+  display: block;
+  text-align: right;
+}
+
+.blogLink:hover {
   opacity: 0.6;
-  letter-spacing: 0.5px;
+  transition: 0.2s;
 }
 
 /* 959px以下に適用されるCSS（タブレット用） */
@@ -89,35 +145,3 @@
     margin: 1rem;
   }
 }
-
-/* @media (prefers-color-scheme: dark) {
-  .heading {
-    border-color: #343539;
-  }
-}
-
-.posts {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-.post {
-  margin-bottom: 50px;
-}
-
-.postTitle {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.postTitle a {
-  color: inherit;
-}
-
-.postDescription {
-  margin-top: 0;
-  margin-bottom: 12px;
-  opacity: 0.65;
-} */

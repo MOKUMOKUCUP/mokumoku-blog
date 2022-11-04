@@ -6,6 +6,7 @@ import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
+import { Twemoji } from "react-emoji-render";
 
 
 export const Text = ({ text }) => {
@@ -196,7 +197,6 @@ const renderBlock = (block) => {
         </div >
       );
     case 'callout':
-      console.log(block)
       const emoji = block.callout.icon.emoji
       const text = block.callout.text[0].plain_text
       const backGroundColor = block.callout.color
@@ -246,7 +246,6 @@ const renderBlock = (block) => {
 export default function Post({ page, blocks }) {
   let date = ''
   const authers = []
-
   if (page) {
     date = new Date(page.last_edited_time).toLocaleDateString('ja-JP') || ''
     page.properties.Auther.multi_select.map((auther) => {
@@ -266,7 +265,7 @@ export default function Post({ page, blocks }) {
           <Text text={page.properties.Name.title} />
         </h1>
         <div className={styles.articleExp}>
-          <p>publish:{date}</p>
+          <p>publish: {date}</p>
           <p>{`auther: `}
             {authers.map((auther, index) => (
               <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
