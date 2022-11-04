@@ -9,10 +9,11 @@ const Header = ({ isAnimation }) => {
 
     const [boxStyle, setBoxStyle] = useState({
         color: '#133D9F',
-        fontSize: '3rem',
+        fontSize: '2.5rem',
         cursor: 'pointer',
         display: 'flex',
         gap: '30px',
+        letterSpacing: '20px',
         justifyContent: 'center'
     })
 

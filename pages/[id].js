@@ -5,6 +5,7 @@ import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
+import Image from "next/image";
 
 
 export const Text = ({ text }) => {
@@ -61,19 +62,19 @@ const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p className={styles.paragraph}>
+        <p className={`${styles.paragraph}`}>
           <Text text={value.text} />
         </p>
       );
     case "heading_1":
       return (
-        <h1 className={styles.heading}>
+        <h1 className={`${styles.heading} ${styles.headDesign}`}>
           <Text text={value.text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2 className={styles.heading}>
+        <h2 className={`${styles.heading} ${styles.headDesign}`}>
           <Text text={value.text} />
         </h2>
       );
@@ -119,7 +120,10 @@ const renderBlock = (block) => {
       const caption = value.caption ? value.caption[0]?.plain_text : "";
       return (
         <figure>
-          <img src={src} alt={caption} />
+          <Image
+            src={src}
+            alt={caption}
+          />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
@@ -192,6 +196,39 @@ const renderBlock = (block) => {
           </table>
         </div >
       );
+    case 'callout':
+      console.log(block)
+      const emoji = block.callout.icon.emoji
+      const text = block.callout.text[0].plain_text
+      const backGroundColor = block.callout.color
+      const backGroundColorDict = [
+        { name: 'gray_background', code: 'rgb(241, 241, 239)' },
+        { name: 'brown_background', code: 'rgb(244, 238, 238)' },
+        { name: 'orange_background', code: 'rgb(251, 236, 221)' },
+        { name: 'yellow_background', code: 'rgb(251, 243, 219)' },
+        { name: 'green_background', code: 'rgb(237, 243, 236) ' },
+        { name: 'blue_background', code: 'rgb(231, 243, 248)' },
+        { name: 'purple_background', code: 'rgba(244, 240, 247, 0.8)' },
+        { name: 'pink_background', code: 'rgba(249, 238, 243, 0.8)' },
+        { name: 'red_background', code: 'rgb(253, 235, 236)' }
+      ]
+
+      var calloutStyle = {
+        backgroundColor: 'rgb(255, 255, 255)',
+        border: '1px solid rgba(0,0,0,.2)'
+      }
+      backGroundColorDict.forEach(element => {
+        if (element.name == backGroundColor) {
+          calloutStyle = { backgroundColor: element.code }
+        }
+      });
+
+      return (
+        <div className={styles.callout} style={calloutStyle}>
+          <span className={styles.calloutEmoji}>{emoji}</span>
+          <p>{text}</p>
+        </div>
+      )
     case 'unsupported':
       return
     default:

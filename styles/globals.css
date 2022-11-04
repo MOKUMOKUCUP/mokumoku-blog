@@ -5,6 +5,13 @@ body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+@media screen and (max-width: 480px) {
+
+  body {
+    font-size: 0.85rem;
+  }
+}
+
 body {
   background-color: white;
   color: black;
@@ -16,6 +23,7 @@ footer {
   padding: 1rem 0;
   margin-top: 2rem;
   bottom: 0;
+  width: 100vw;
 }
 
 footer span {
@@ -32,6 +40,7 @@ footer span {
 
 table {
   width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-collapse: collapse;
   border-spacing: 0;
 }

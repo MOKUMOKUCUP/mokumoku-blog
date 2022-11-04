@@ -14,6 +14,18 @@
   height: auto;
 }
 
+.callout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  color: rgba(55, 53, 47, 1);
+}
+
+.calloutEmoji {
+  margin: .5rem;
+}
+
 .container figure {
   margin-left: 0;
   margin-right: 0;
@@ -29,17 +41,33 @@
 
 /* 480px以下に適用されるCSS（スマホ用） */
 @media screen and (max-width: 480px) {
+
+  .container h1 {
+    font-size: 20px;
+  }
+
   .name {
     font-size: 24px;
   }
 
   .paragraph {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
 .heading {
   margin-top: 5rem;
+}
+
+.headDesign {
+  padding: 0.25em 0.5em;
+  /*上下 左右の余白*/
+  color: #494949;
+  /*文字色*/
+  background: #f7f6f6;
+  /*背景透明に*/
+  border-left: solid 7px rgb(19, 61, 159);
+  /*左線*/
 }
 
 .paragraph {

@@ -3,7 +3,6 @@ import styles from "./index.module.css";
 import Header from "../Component/Header";
 import HeadContent from "../Component/HeadContent";
 import BlogList from "../Component/BlogList";
-import MemberList from "../Component/Member";
 import Footer from "../Component/Footer";
 import { useEffect, useState } from "react";
 
@@ -24,7 +23,6 @@ export default function Home({ posts, members }) {
         <Header isAnimation={true} />
         <main className={`${styles.container}`} >
           <BlogList posts={posts} isAnimation={false} />
-          {/* <MemberList members={members} isAnimation={true} /> */}
         </main>
         <Footer />
       </div>
@@ -36,7 +34,6 @@ export default function Home({ posts, members }) {
         <Header isAnimation={false} />
         <main className={`${styles.container}`} >
           <BlogList posts={posts} isAnimation={false} />
-          <MemberList members={members} isAnimation={false} />
         </main>
         <Footer />
       </div>
