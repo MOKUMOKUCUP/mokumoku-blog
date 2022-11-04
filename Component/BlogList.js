@@ -43,7 +43,7 @@ const BlogList = ({ posts, isAnimation }) => {
                 {posts.map((post) => {
                     if (!post.properties.isPublish.checkbox) { return; }
 
-                    const date = new Date(post.last_edited_time).toLocaleDateString('ja-JP')
+                    const date = new Date(post.last_edited_time).toLocaleDateString('ja-JP') || ''
                     const authers = []
                     post.properties.Auther.multi_select.map((auther) => {
                         authers.push(auther.name)
