@@ -87,7 +87,7 @@ const renderBlock = (block) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <div style={{ margin: '30px 20px' }}>
+        <div style={{ margin: '15px 20px' }}>
           <li >
             <Text text={value.text} />
             {!!value.children && renderNestedList(block)}
@@ -129,7 +129,7 @@ const renderBlock = (block) => {
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+      return <blockquote style={{ margin: '20px 15px' }} key={id}>{value.text[0].plain_text}</blockquote>;
     case "code":
       return (
         <pre className={styles.pre}>
