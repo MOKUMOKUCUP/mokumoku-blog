@@ -244,9 +244,11 @@ const renderBlock = (block) => {
 };
 
 export default function Post({ page, blocks }) {
+  let date = ''
+  const authers = []
+
   if (page) {
-    const date = new Date(page.last_edited_time).toLocaleDateString('ja-JP') || ''
-    const authers = []
+    date = new Date(page.last_edited_time).toLocaleDateString('ja-JP') || ''
     page.properties.Auther.multi_select.map((auther) => {
       authers.push(auther.name)
     })
