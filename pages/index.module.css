@@ -118,6 +118,10 @@
   color: #000000;
 }
 
+.postDescription {
+  margin-left: 30px;
+}
+
 .blogLink {
   display: block;
   text-align: right;
@@ -143,5 +147,13 @@
     padding: 30px;
     width: 100%;
     margin: 1rem;
+  }
+
+  .postTitle:after {
+    width: 100%;
+  }
+
+  .postTitle {
+    font-size: 1.2rem;
   }
 }

@@ -15,6 +15,16 @@
   height: auto;
 }
 
+.figcaption {
+  color: rgba(0, 0, 0, .8);
+  font-size: .8rem;
+}
+
+.figcaption a {
+  color: rgba(0, 0, 0, .8);
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
 .articleExp {
   text-align: right;
   padding: 0 1rem;
@@ -80,6 +90,11 @@
   margin-top: 3rem;
 }
 
+.tableContent a {
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
 /* 480px以下に適用されるCSS（スマホ用） */
 @media screen and (max-width: 480px) {
   .heading {
@@ -108,7 +123,7 @@
 .headDesign {
   padding: 0.25em 0.5em;
   /*上下 左右の余白*/
-  color: #494949;
+  color: #000;
   /*文字色*/
   background: #f7f6f6;
   /*背景透明に*/

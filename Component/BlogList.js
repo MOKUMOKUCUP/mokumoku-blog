@@ -9,7 +9,6 @@ const BlogList = ({ posts, isAnimation }) => {
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
             <ol className={`${styles.posts}`} >
-                {/* <ol className={`${styles.posts} delayShowBlog`} > */}
                 {posts.map((post) => {
                     if (!post.properties.isPublish.checkbox) { return; }
 

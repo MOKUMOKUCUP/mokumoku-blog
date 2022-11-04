@@ -63,9 +63,10 @@ const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p className={`${styles.paragraph}`}>
+        < p className={`${styles.paragraph}`
+        }>
           <Text text={value.text} />
-        </p>
+        </p >
       );
     case "heading_1":
       return (
@@ -120,11 +121,11 @@ const renderBlock = (block) => {
     case "image":
       const src =
         value.type === "external" ? value.external.url : value.file.url;
-      const caption = value.caption ? value.caption[0]?.plain_text : "";
+      const caption = value.caption || "";
       return (
         <figure>
           <img src={src} alt={caption} quality={25} />
-          {caption && <figcaption>{caption}</figcaption>}
+          {caption && <figcaption className={styles.figcaption}><Text text={caption} /></figcaption>}
         </figure>
       );
     case "divider":
@@ -174,7 +175,7 @@ const renderBlock = (block) => {
         const item = columList[i].table_row.cells
         const itemList = []
         for (let j = 0; j < item.length; j++) {
-          itemList.push(item[j][0].plain_text)
+          itemList.push(item[j][0])
         }
         tableList.push(itemList)
       }
@@ -187,7 +188,8 @@ const renderBlock = (block) => {
                 return (
                   <tr key={index}>
                     {item.map((i) => {
-                      return <td>{i}</td>
+                      const text = [i]
+                      return <td className={styles.tableContent}><Text text={text} /></td>
                     })}
                   </tr>
                 );
@@ -198,7 +200,7 @@ const renderBlock = (block) => {
       );
     case 'callout':
       const emoji = block.callout.icon.emoji
-      const text = block.callout.text[0].plain_text
+      const text = block.callout.text
       const backGroundColor = block.callout.color
       const backGroundColorDict = [
         { name: 'gray_background', code: 'rgb(241, 241, 239)' },
@@ -232,7 +234,7 @@ const renderBlock = (block) => {
       return (
         <div className={styles.callout} style={calloutStyle}>
           <span className={styles.calloutEmoji}>{emoji}</span>
-          <p>{text}</p>
+          <p><Text text={text} /></p>
         </div>
       )
     case 'unsupported':
