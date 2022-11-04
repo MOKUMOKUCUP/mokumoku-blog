@@ -39,7 +39,8 @@ footer span {
 }
 
 footer a {
-  color: rgb(225, 161, 102);
+  color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
 }
 
 table {
