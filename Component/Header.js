@@ -13,7 +13,6 @@ const Header = ({ isAnimation }) => {
         cursor: 'pointer',
         display: 'flex',
         gap: '30px',
-        letterSpacing: '20px',
         justifyContent: 'center'
     })
 
@@ -25,9 +24,9 @@ const Header = ({ isAnimation }) => {
         if (isAnimation && isBrowser) {
             delayScrollAnime('.popUp', 'titleAnimation')
         } if (isMobile) {
-            setBoxStyle(state => ({ ...state, fontSize: '2.5rem' }))
+            setBoxStyle(state => ({ ...state, fontSize: '2rem' }))
         } else {
-            setBoxStyle(state => ({ ...state, fontSize: '4rem' }))
+            setBoxStyle(state => ({ ...state, fontSize: '3rem', letterSpacing: '20px', }))
         }
     }, [])
 

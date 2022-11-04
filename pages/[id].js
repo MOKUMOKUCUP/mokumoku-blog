@@ -5,6 +5,7 @@ import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
+import Footer from "../Component/Footer";
 
 
 export const Text = ({ text }) => {
@@ -86,10 +87,12 @@ const renderBlock = (block) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <li style={{ marginTop: '10px' }}>
-          <Text text={value.text} />
-          {!!value.children && renderNestedList(block)}
-        </li>
+        <div style={{ margin: '30px 20px' }}>
+          <li >
+            <Text text={value.text} />
+            {!!value.children && renderNestedList(block)}
+          </li>
+        </div>
       );
     case "to_do":
       return (
@@ -213,11 +216,18 @@ const renderBlock = (block) => {
         backgroundColor: 'rgb(255, 255, 255)',
         border: '1px solid rgba(0,0,0,.2)'
       }
+
       backGroundColorDict.forEach(element => {
         if (element.name == backGroundColor) {
           calloutStyle = { backgroundColor: element.code }
         }
       });
+
+      if (block.callout.text[0].annotations.bold) {
+        calloutStyle.fontWeight = 'bold'
+      }
+
+
 
       return (
         <div className={styles.callout} style={calloutStyle}>
@@ -234,7 +244,11 @@ const renderBlock = (block) => {
 };
 
 export default function Post({ page, blocks }) {
-
+  const date = new Date(page.last_edited_time).toLocaleDateString('ja-JP')
+  const authers = []
+  page.properties.Auther.multi_select.map((auther) => {
+    authers.push(auther.name)
+  })
   if (!page || !blocks) {
     return <div />;
   }
@@ -246,6 +260,15 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
+        <div className={styles.articleExp}>
+          <p>publish:{date}</p>
+          <p>{`auther: `}
+            {authers.map((auther, index) => (
+              <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
+            ))}
+          </p>
+        </div>
+
         <section>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -255,6 +278,7 @@ export default function Post({ page, blocks }) {
           </Link>
         </section>
       </article>
+      <Footer />
     </div>
   );
 }

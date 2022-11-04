@@ -10,7 +10,6 @@ export default function delayScrollAnime(targetClass, animationClassName, scroll
         var scroll = scrollValue ? scrollValue : 0//スクロール値を取得
         var windowHeight = $(window).height();//画面の高さを取得
         var childs = $(this).children();	//子要素を取得
-        console.log(scroll >= elemPos - windowHeight)
         if (scroll >= elemPos - windowHeight && !$(parent).hasClass("play")) {//指定領域内にスクロールが入ったらまた親要素にクラスplayがなければ
             $(childs).each(function () {
                 if (!$(this).hasClass(animationClassName)) {//アニメーションのクラス名が指定されているかどうかをチェック
