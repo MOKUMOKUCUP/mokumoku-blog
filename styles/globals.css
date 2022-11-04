@@ -5,6 +5,13 @@ body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+
+img {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
 @media screen and (max-width: 480px) {
 
   body {

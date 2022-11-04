@@ -5,7 +5,6 @@ import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
-import Image from "next/image";
 
 
 export const Text = ({ text }) => {
@@ -120,10 +119,7 @@ const renderBlock = (block) => {
       const caption = value.caption ? value.caption[0]?.plain_text : "";
       return (
         <figure>
-          <Image
-            src={src}
-            alt={caption}
-          />
+          <img src={src} alt={caption} quality={50} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
