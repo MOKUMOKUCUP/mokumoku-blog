@@ -3,7 +3,6 @@ import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
 import { postDatabaseId } from "./index.js";
 import styles from "./post.module.css";
-import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Image from "next/image";
@@ -124,10 +123,10 @@ const renderBlock = (block) => {
       const caption = value.caption || "";
       return (
         <figure className={styles.imageContainer}>
-          {/* <img src={src} alt={caption} quality={25} /> */}
           <Image
             className={styles.image}
             src={src}
+            alt={caption}
             layout="fill"
             objectFit="contain"
           />
@@ -267,8 +266,7 @@ export default function Post({ page, blocks }) {
   }
   return (
     <div>
-      <HeadContent title={'ブログページ'} />
-      <Header isAnimation={false} />
+      <Header />
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />

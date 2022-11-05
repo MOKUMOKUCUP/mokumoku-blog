@@ -20,7 +20,7 @@ const BlogList = ({ posts }) => {
                     return (
                         <li key={post.id} className={`${styles.post}`} >
                             <h3 className={styles.postTitle}>
-                                <Link href={`/${post.id}`}>
+                                <Link href={`/${post.id}`} >
                                     <a>
                                         <Text text={post.properties.Name.title} />
                                     </a>
