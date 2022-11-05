@@ -47,14 +47,14 @@ const Header = ({ isAnimation }) => {
                         </div>
                     </Link>
                     <h3>
-                        MOKUMOKU CUP 実行委員会のホームページです!
+                        MOKUMOKU CUP 実行委員会
                     </h3>
                 </>
             )}
             {isMobile && (
                 <>
                     <Link href="/"><h1 style={boxStyle}>MOKUMOKU</h1></Link>
-                    <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会のホームページです!</p>
+                    <p style={{ fontSize: '.8rem' }}>MOKUMOKU CUP 実行委員会</p>
                 </>
             )}
         </header >
