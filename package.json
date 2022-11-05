@@ -5,25 +5,22 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "bundle-analyzer": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@next/bundle-analyzer": "^13.0.2",
     "@notionhq/client": "^0.4.4",
     "cheerio": "^1.0.0-rc.12",
     "fs": "^0.0.1-security",
-    "jquery": "^3.6.1",
     "jsdom": "^20.0.1",
     "net": "^1.0.2",
     "next": "^12.3.1",
     "react": "17.x",
     "react-device-detect": "^2.2.2",
     "react-dom": "17.x",
-    "react-emoji-render": "^1.2.4",
-    "react-icons": "^4.6.0",
     "request": "^2.88.2",
-    "tls": "^0.0.1",
-    "twemoji": "^14.0.2"
+    "sharp": "^0.31.2",
+    "tls": "^0.0.1"
   }
 }

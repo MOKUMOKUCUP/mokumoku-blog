@@ -1,16 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from "../pages/index.module.css";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
-import delayScrollAnime from '../styles/style';
-import $ from 'jquery'
 
 const MemberList = ({ members, isAnimation }) => {
     const [memberList, setMemberList] = useState([]);
-    const [scrollValue, setScrollValue] = useState(0)
-    const [opacity, setOpacity] = useState({ opacity: '0' })
 
     useEffect(() => {
         const tempList = []
@@ -18,29 +14,14 @@ const MemberList = ({ members, isAnimation }) => {
             tempList.push(member.properties)
         }))
         setMemberList(tempList)
-
-        if (!isAnimation) {
-            setOpacity(state => ({ ...state, opacity: '1' }))
-        }
     }, [])
 
-    useEffect(() => {
-        window.addEventListener('scroll', function () {
-            if (isAnimation) {
-                setScrollValue($(window).scrollTop())
-            }
-        });
-
-        if (isAnimation) {
-            delayScrollAnime('.delayShowMember', 'listAnimation', scrollValue)
-        }
-    }, [scrollValue])
 
 
     return (
         <>
             <h2 className={`${styles.heading}`}>Member</h2>
-            <div className={`${styles.wrap} delayShowMember`}>
+            <div className={`${styles.wrap}`}>
                 {memberList.sort((a, b) => {
                     if (a.id.number < b.id.number) {
                         return -1;
@@ -74,8 +55,6 @@ const MemberList = ({ members, isAnimation }) => {
                         </div>
                     )
                 })}
-            </div>
-            <div className={`${styles.posts} delayScroll`}>
             </div>
         </>
     )

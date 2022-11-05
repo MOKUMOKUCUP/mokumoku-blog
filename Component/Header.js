@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from "../pages/index.module.css";
 import Link from 'next/link';
-import delayScrollAnime from '../styles/style';
-import { BrowserView, isBrowser, isMobile, isTablet, MobileView } from 'react-device-detect';
+import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 
 
-const Header = ({ isAnimation }) => {
+const Header = () => {
 
     const [boxStyle, setBoxStyle] = useState({
         color: '#133D9F',
@@ -16,14 +15,10 @@ const Header = ({ isAnimation }) => {
         justifyContent: 'center'
     })
 
-    if (isAnimation === undefined) {
-        isAnimation = true
-    }
+
 
     useEffect(() => {
-        if (isAnimation && isBrowser) {
-            delayScrollAnime('.popUp', 'titleAnimation')
-        } if (isMobile) {
+        if (isMobile) {
             setBoxStyle(state => ({ ...state, fontSize: '2rem' }))
         } else {
             setBoxStyle(state => ({ ...state, fontSize: '3rem', letterSpacing: '20px', }))
@@ -35,7 +30,7 @@ const Header = ({ isAnimation }) => {
             {isBrowser && !isTablet && (
                 <>
                     <Link href="/">
-                        <div className={`popUp`} style={boxStyle}>
+                        <div style={boxStyle}>
                             <span className='box'>M</span>
                             <span className='box'>O</span>
                             <span className='box'>K</span>

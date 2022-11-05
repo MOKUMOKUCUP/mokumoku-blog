@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 
-const BlogList = ({ posts, isAnimation }) => {
+const BlogList = ({ posts }) => {
 
     return (
         <>

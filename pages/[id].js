@@ -6,7 +6,7 @@ import styles from "./post.module.css";
 import HeadContent from "../Component/HeadContent";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
-import { Twemoji } from "react-emoji-render";
+import Image from "next/image";
 
 
 export const Text = ({ text }) => {
@@ -123,8 +123,15 @@ const renderBlock = (block) => {
         value.type === "external" ? value.external.url : value.file.url;
       const caption = value.caption || "";
       return (
-        <figure>
-          <img src={src} alt={caption} quality={25} />
+        <figure className={styles.imageContainer}>
+          {/* <img src={src} alt={caption} quality={25} /> */}
+          <Image
+            className={styles.image}
+            src={src}
+            layout="fill"
+            objectFit="contain"
+          />
+
           {caption && <figcaption className={styles.figcaption}><Text text={caption} /></figcaption>}
         </figure>
       );
