@@ -44,6 +44,15 @@
   margin-bottom: 3rem;
 }
 
+.date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date p {
+  margin-left: 10px;
+}
+
 .callout {
   display: flex;
   font-family: initial;
@@ -104,6 +113,36 @@
 .tableContent a {
   color: rgb(0, 0, 0);
   border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+.share {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: #1DA1F2;
+  width: 5%;
+  margin-right: 10px;
+}
+
+.share span {
+  position: relative;
+  background-color: #1DA1F2;
+  padding: 10px;
+  color: #fff;
+  margin: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.share span::before {
+  content: "";
+  position: absolute;
+  border: 8px solid transparent;
+  border-right: 10px solid #1DA1F2;
+  top: 30%;
+  left: -18px;
 }
 
 /* 480px以下に適用されるCSS（スマホ用） */

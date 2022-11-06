@@ -6,6 +6,10 @@ import styles from "./post.module.css";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Image from "next/image";
+import HeadContent from "../Component/HeadContent";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 
 export const Text = ({ text }) => {
@@ -252,10 +256,14 @@ const renderBlock = (block) => {
 };
 
 export default function Post({ page, blocks }) {
-  let date = ''
+  const hashTag = page && page.properties.HashTag.rich_text[0] ? page.properties.HashTag.rich_text[0].plain_text : ' '
+  const title = page && page.properties.Name.title[0] ? page.properties.Name.title[0].plain_text : ''
+  const publishedDate = page ? new Date(page.created_time).toLocaleDateString('ja-JP') : ''
+  const editedDate = page ? new Date(page.last_edited_time).toLocaleDateString('ja-JP') : ''
   const authers = []
+  const router = useRouter();
+
   if (page) {
-    date = new Date(page.last_edited_time).toLocaleDateString('ja-JP') || ''
     page.properties.Auther.multi_select.map((auther) => {
       authers.push(auther.name)
     })
@@ -266,13 +274,17 @@ export default function Post({ page, blocks }) {
   }
   return (
     <div>
+      <HeadContent title={title} />
       <Header />
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
         <div className={styles.articleExp}>
-          <p>publish: {date}</p>
+          <div className={styles.date}>
+            <p>edited: {editedDate}</p>
+            <p>published: {publishedDate}</p>
+          </div>
           <p>{`auther: `}
             {authers.map((auther, index) => (
               <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
@@ -284,6 +296,15 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
+          <a
+            href={`https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`}
+            rel="nofollow"
+            target="_blank"
+            className={styles.share}
+          >
+            <FontAwesomeIcon className={styles.icon} icon={faTwitter} />
+            <span>TwitterでShare！</span>
+          </a>
           <Link href="/">
             <a className={styles.back}>← Go home</a>
           </Link>

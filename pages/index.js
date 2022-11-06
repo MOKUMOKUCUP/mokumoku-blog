@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import Header from "../Component/Header";
 import BlogList from "../Component/BlogList";
 import Footer from "../Component/Footer";
+import HeadContent from "../Component/HeadContent"
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
@@ -10,6 +11,7 @@ export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
 export default function Home({ posts, members }) {
   return (
     <div>
+      <HeadContent title='Top' />
       <Header />
       <main className={`${styles.container}`} >
         <BlogList posts={posts} />
