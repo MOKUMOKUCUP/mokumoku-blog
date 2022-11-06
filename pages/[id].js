@@ -296,6 +296,7 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
+
           <a
             href={`https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`}
             rel="nofollow"
@@ -305,6 +306,7 @@ export default function Post({ page, blocks }) {
             <FontAwesomeIcon className={styles.icon} icon={faTwitter} />
             <span>TwitterでShare！</span>
           </a>
+
           <Link href="/">
             <a className={styles.back}>← Go home</a>
           </Link>

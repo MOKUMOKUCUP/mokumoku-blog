@@ -118,12 +118,15 @@
 .share {
   display: flex;
   align-items: center;
+  width: 35%;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .icon {
   color: #1DA1F2;
-  width: 5%;
-  margin-right: 10px;
+  width: 15%;
+  margin-right: 20px;
 }
 
 .share span {
@@ -131,7 +134,7 @@
   background-color: #1DA1F2;
   padding: 10px;
   color: #fff;
-  margin: 15px;
+  /* margin: 15px; */
   border-radius: 10px;
   text-align: center;
 }
@@ -165,6 +168,10 @@
 
   .articleExp {
     font-size: 0.75rem;
+  }
+
+  .share {
+    width: 55%;
   }
 }
 
