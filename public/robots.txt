@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mokumoku-blog.vercel.app/
+
+# Sitemaps
+Sitemap: https://mokumoku-blog.vercel.app/sitemap.xml
