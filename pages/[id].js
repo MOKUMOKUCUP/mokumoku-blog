@@ -263,6 +263,10 @@ export default function Post({ page, blocks }) {
   const authers = []
   const router = useRouter();
 
+  const shareUrl = hashTag
+    ? `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`
+    : `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}`
+
   if (page) {
     page.properties.Auther.multi_select.map((auther) => {
       authers.push(auther.name)
@@ -298,7 +302,7 @@ export default function Post({ page, blocks }) {
           ))}
 
           <a
-            href={`https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`}
+            href={shareUrl}
             rel="nofollow"
             target="_blank"
             className={styles.share}
