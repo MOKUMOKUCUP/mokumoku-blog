@@ -16,11 +16,15 @@ export const Text = ({ text }) => {
   if (!text) {
     return null;
   }
+
   return text.map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+    if (text.content === '\n') {
+      return (<br />)
+    }
     return (
       <span
         className={[
@@ -62,7 +66,6 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
-  console.log(type)
 
   switch (type) {
     case "paragraph":
@@ -247,7 +250,6 @@ const renderBlock = (block) => {
         </div>
       )
     case 'video':
-      console.log(value)
       const videoUrl = value.external.url
       return (
         <>
