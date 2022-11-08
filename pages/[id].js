@@ -239,13 +239,20 @@ const renderBlock = (block) => {
         calloutStyle.fontWeight = 'bold'
       }
 
-
-
       return (
         <div className={styles.callout} style={calloutStyle}>
           <span className={styles.calloutEmoji}>{emoji}</span>
           <p><Text text={text} /></p>
         </div>
+      )
+    case 'video':
+      const videoUrl = value.external.url
+      return (
+        <>
+          <div className={styles.video}>
+            <iframe src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+          </div>
+        </>
       )
     case 'unsupported':
       return
