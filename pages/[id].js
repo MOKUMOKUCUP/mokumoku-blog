@@ -62,6 +62,7 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
+  console.log(type)
 
   switch (type) {
     case "paragraph":
@@ -246,11 +247,12 @@ const renderBlock = (block) => {
         </div>
       )
     case 'video':
+      console.log(value)
       const videoUrl = value.external.url
       return (
         <>
           <div className={styles.video}>
-            <iframe src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+            <iframe src={videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
           </div>
         </>
       )
