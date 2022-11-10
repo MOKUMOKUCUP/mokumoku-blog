@@ -167,19 +167,23 @@
   width: 100vw;
 }
 
-.adminForm label {}
-
 .adminForm input[type="password"] {
-  margin-right: 10px;
+  margin-right: 20px;
   padding: 10px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .adminForm button {
-  background-color: rgb(119, 195, 223);
+  background-color: rgb(102, 190, 222);
   border-radius: 5px;
   border: none;
   color: #fff;
   padding: 10px;
+}
+
+.adminForm button:hover {
+  opacity: 0.6;
+  transition: all 0.5s;
+  cursor: pointer;
 }
