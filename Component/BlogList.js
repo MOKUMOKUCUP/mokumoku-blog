@@ -3,11 +3,13 @@ import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 
 const BlogList = ({ posts, admin }) => {
+
     return (
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
             <ol className={`${styles.posts}`} >
                 {posts.map((post) => {
+                    const publish = post.properties.isPublish.checkbox
                     if (!admin) { if (!post.properties.isPublish.checkbox) { return; } }
 
                     const date = new Date(post.last_edited_time).toLocaleDateString('ja-JP') || ''
@@ -32,6 +34,7 @@ const BlogList = ({ posts, admin }) => {
                                         <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
                                     ))}
                                 </p>
+                                {admin ? <p>{`publish: ${publish}`}</p> : <></>}
                             </div>
                             <Link href={`/${post.id}`}>
                                 <a className={styles.blogLink}> 記事を読む →</a>
