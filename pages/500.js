@@ -3,7 +3,7 @@ import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Link from "next/link";
 
-export const Error500 = () => {
+const Error500 = () => {
     return (
         <div>
             <Header />

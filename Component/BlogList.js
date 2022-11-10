@@ -2,14 +2,13 @@ import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 
-const BlogList = ({ posts }) => {
-
+const BlogList = ({ posts, admin }) => {
     return (
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
             <ol className={`${styles.posts}`} >
                 {posts.map((post) => {
-                    if (!post.properties.isPublish.checkbox) { return; }
+                    if (!admin) { if (!post.properties.isPublish.checkbox) { return; } }
 
                     const date = new Date(post.last_edited_time).toLocaleDateString('ja-JP') || ''
                     const authers = []

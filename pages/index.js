@@ -4,6 +4,7 @@ import Header from "../Component/Header";
 import BlogList from "../Component/BlogList";
 import Footer from "../Component/Footer";
 import HeadContent from "../Component/HeadContent"
+import { useState } from "react";
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
@@ -14,7 +15,7 @@ export default function Home({ posts, members }) {
       <HeadContent title='Top' />
       <Header />
       <main className={`${styles.container}`} >
-        <BlogList posts={posts} />
+        <BlogList posts={posts} admin={false} />
       </main>
       <Footer />
     </div>

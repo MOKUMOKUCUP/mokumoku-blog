@@ -3,7 +3,7 @@ import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Link from "next/link";
 
-export const Error404 = () => {
+const Error404 = () => {
     return (
         <div>
             <Header />

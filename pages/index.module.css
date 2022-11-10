@@ -157,3 +157,23 @@
     font-size: 1.2rem;
   }
 }
+
+.adminForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.adminForm label {
+  
+}
+
+.adminForm input[type="password"] {
+  padding: 10px;
+  width: 35%;
+}
+
+.adminForm button {
+  padding: 10px;
+}
