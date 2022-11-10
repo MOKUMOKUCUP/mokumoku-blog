@@ -163,17 +163,23 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
+  width: 100vw;
 }
 
-.adminForm label {
-  
-}
+.adminForm label {}
 
 .adminForm input[type="password"] {
+  margin-right: 10px;
   padding: 10px;
-  width: 35%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .adminForm button {
+  background-color: rgb(119, 195, 223);
+  border-radius: 5px;
+  border: none;
+  color: #fff;
   padding: 10px;
 }

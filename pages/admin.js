@@ -36,8 +36,10 @@ export default function Home({ posts, members }) {
                 </div>
                 :
                 <form className={styles.adminForm} >
-                    <input type="password" onChange={handleNameChange} />
-                    <button onClick={onSubmitHandler}>Auth</button>
+                    <div>
+                        <input type="password" onChange={handleNameChange} />
+                        <button onClick={onSubmitHandler}>Auth</button>
+                    </div>
                 </form>}
         </>
     );
