@@ -29,7 +29,7 @@ export default function Home({ posts, members }) {
                 <div>
                     <HeadContent title='Top' />
                     <Header />
-                    <main className={`${styles.container}`} >
+                    <main className={styles.container} >
                         <BlogList posts={posts} admin={true} />
                     </main>
                     <Footer />
