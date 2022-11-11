@@ -38,7 +38,7 @@ export default function Home({ posts, members }) {
                 <form className={styles.adminForm} >
                     <div>
                         <input type="password" onChange={handleNameChange} />
-                        <button onClick={onSubmitHandler} style={styles.adminFormButton}>Auth</button>
+                        <button onClick={onSubmitHandler} className={styles.adminFormButton}>Auth</button>
                     </div>
                 </form>}
         </>
