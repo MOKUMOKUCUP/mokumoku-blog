@@ -11,7 +11,7 @@ export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
 
 export default function Home({ posts, members }) {
     const [isAuth, setIsAuth] = useState();
-    const [password, setPassword] = useState(false);
+    const [password, setPassword] = useState('');
 
     const handleNameChange = (event) => {
         setPassword(event.target.value);
@@ -38,7 +38,7 @@ export default function Home({ posts, members }) {
                 <form className={styles.adminForm} >
                     <div>
                         <input type="password" onChange={handleNameChange} />
-                        <button onClick={onSubmitHandler}>Auth</button>
+                        <button onClick={onSubmitHandler} style={styles.adminFormButton}>Auth</button>
                     </div>
                 </form>}
         </>
