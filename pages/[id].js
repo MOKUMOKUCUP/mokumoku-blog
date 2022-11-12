@@ -96,8 +96,8 @@ const renderBlock = (block) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <div style={{ margin: '15px 20px' }}>
-          <li >
+        <div style={{ margin: '25px' }}>
+          <li className={styles.list}>
             <Text text={value.text} />
             {!!value.children && renderNestedList(block)}
           </li>

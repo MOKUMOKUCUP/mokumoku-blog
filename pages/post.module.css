@@ -53,6 +53,10 @@
   margin-left: 10px;
 }
 
+.list{
+  line-height: 1.8rem;
+}
+
 .callout {
   display: flex;
   font-family: initial;
