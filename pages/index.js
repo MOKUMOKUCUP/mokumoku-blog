@@ -7,9 +7,8 @@ import HeadContent from "../Component/HeadContent"
 import { useState } from "react";
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
-export const memberDatabaseId = process.env.NOTION_MEMBER_DATABASE_ID;
 
-export default function Home({ posts, members }) {
+export default function Home({ posts }) {
   return (
     <div>
       <HeadContent title='Top' />
@@ -26,11 +25,9 @@ export default function Home({ posts, members }) {
 // 動的ページ（このようなブログサイト）に有用
 export const getStaticProps = async () => {
   const postsDatabase = await getDatabase(postDatabaseId)
-  const memberDatabase = await getDatabase(memberDatabaseId)
   return {
     props: {
       posts: postsDatabase,
-      members: memberDatabase,
     },
     // アクセスしたこの値の間は同じキャッシュを返す
     // この秒数を超すと新しいキャッシュを構築し直す

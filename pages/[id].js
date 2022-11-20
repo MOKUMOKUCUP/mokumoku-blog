@@ -202,7 +202,7 @@ const renderBlock = (block) => {
                 return (
                   <tr key={index}>
                     {item.map((i) => {
-                      const text = [i]
+                      const text = [i] || ''
                       return <td className={styles.tableContent}><Text text={text} /></td>
                     })}
                   </tr>
