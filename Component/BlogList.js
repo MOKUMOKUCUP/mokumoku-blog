@@ -4,7 +4,6 @@ import styles from "../pages/index.module.css";
 import { useEffect, useState } from "react";
 
 const BlogList = ({ posts, admin }) => {
-
     
     const [sortedPosts, setSoredPosts ] = useState([])
 
@@ -19,7 +18,6 @@ const BlogList = ({ posts, admin }) => {
             }
         })
         pinPosts.sort((a,b) => {
-            console.log(a.properties.publishDate.date.start)
             return (a.properties.publishDate.date.start < b.properties.publishDate.date.start ? 1 : -1);
         })
         normalPosts.sort((a,b) => {
@@ -28,8 +26,6 @@ const BlogList = ({ posts, admin }) => {
         setSoredPosts(pinPosts.concat(normalPosts))
     },[])
     
-
-
     return (
         <>
             <h2 className={`${styles.heading}`}>NEWS</h2>
