@@ -9,8 +9,7 @@ import Image from "next/image";
 import HeadContent from "../Component/HeadContent";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons"
-
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -22,8 +21,8 @@ export const Text = ({ text }) => {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
-    if (text.content === '\n') {
-      return (<br />)
+    if (text.content === "\n") {
+      return <br />;
     }
     return (
       <span
@@ -47,21 +46,13 @@ const renderNestedList = (block) => {
   const value = block[type];
   if (!value) return null;
 
-  const isNumberedList = value.children[0].type === 'numbered_list_item'
+  const isNumberedList = value.children[0].type === "numbered_list_item";
 
   if (isNumberedList) {
-    return (
-      <ol>
-        {value.children.map((block) => renderBlock(block))}
-      </ol>
-    )
+    return <ol>{value.children.map((block) => renderBlock(block))}</ol>;
   }
-  return (
-    <ul>
-      {value.children.map((block) => renderBlock(block))}
-    </ul>
-  )
-}
+  return <ul>{value.children.map((block) => renderBlock(block))}</ul>;
+};
 
 const renderBlock = (block) => {
   const { type, id } = block;
@@ -70,10 +61,9 @@ const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        < p className={`${styles.paragraph}`
-        }>
+        <p className={`${styles.paragraph}`}>
           <Text text={value.text} />
-        </p >
+        </p>
       );
     case "heading_1":
       return (
@@ -96,7 +86,7 @@ const renderBlock = (block) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <div style={{ margin: '25px' }}>
+        <div style={{ margin: "25px" }}>
           <li className={styles.list}>
             <Text text={value.text} />
             {!!value.children && renderNestedList(block)}
@@ -139,13 +129,21 @@ const renderBlock = (block) => {
             objectFit="contain"
           />
 
-          {caption && <figcaption className={styles.figcaption}><Text text={caption} /></figcaption>}
+          {caption && (
+            <figcaption className={styles.figcaption}>
+              <Text text={caption} />
+            </figcaption>
+          )}
         </figure>
       );
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote style={{ margin: '20px 15px' }} key={id}>{value.text[0].plain_text}</blockquote>;
+      return (
+        <blockquote style={{ margin: "20px 15px" }} key={id}>
+          <Text text={value.text} />
+        </blockquote>
+      );
     case "code":
       return (
         <pre className={styles.pre}>
@@ -172,116 +170,139 @@ const renderBlock = (block) => {
         </figure>
       );
     case "bookmark":
-      const href = value.url
+      const href = value.url;
       return (
         <a href={href} target="_brank" className={styles.bookmark}>
           {href}
         </a>
       );
     case "table":
-      const columList = []
-      const tableList = []
+      const columList = [];
+      const tableList = [];
       value.children.map((item) => {
-        columList.push(item)
-      })
+        columList.push(item);
+      });
 
       for (let i = 0; i < columList.length; i++) {
-        const item = columList[i].table_row.cells
-        const itemList = []
+        const item = columList[i].table_row.cells;
+        const itemList = [];
         for (let j = 0; j < item.length; j++) {
-          itemList.push(item[j][0])
+          itemList.push(item[j][0]);
         }
-        tableList.push(itemList)
+        tableList.push(itemList);
       }
 
       return (
-        < div >
+        <div>
           <table>
             <tbody>
               {tableList.slice().map((item, index) => {
                 return (
                   <tr key={index}>
                     {item.map((i) => {
-                      const text = [i] || ''
-                      return <td className={styles.tableContent}><Text text={text} /></td>
+                      const text = [i] || "";
+                      return (
+                        <td className={styles.tableContent}>
+                          <Text text={text} />
+                        </td>
+                      );
                     })}
                   </tr>
                 );
               })}
             </tbody>
           </table>
-        </div >
+        </div>
       );
-    case 'callout':
-      const emoji = block.callout.icon.emoji
-      const text = block.callout.text
-      const backGroundColor = block.callout.color
+    case "callout":
+      const emoji = block.callout.icon.emoji;
+      const text = block.callout.text;
+      const backGroundColor = block.callout.color;
       const backGroundColorDict = [
-        { name: 'gray_background', code: 'rgb(241, 241, 239)' },
-        { name: 'brown_background', code: 'rgb(244, 238, 238)' },
-        { name: 'orange_background', code: 'rgb(251, 236, 221)' },
-        { name: 'yellow_background', code: 'rgb(251, 243, 219)' },
-        { name: 'green_background', code: 'rgb(237, 243, 236) ' },
-        { name: 'blue_background', code: 'rgb(231, 243, 248)' },
-        { name: 'purple_background', code: 'rgba(244, 240, 247, 0.8)' },
-        { name: 'pink_background', code: 'rgba(249, 238, 243, 0.8)' },
-        { name: 'red_background', code: 'rgb(253, 235, 236)' }
-      ]
+        { name: "gray_background", code: "rgb(241, 241, 239)" },
+        { name: "brown_background", code: "rgb(244, 238, 238)" },
+        { name: "orange_background", code: "rgb(251, 236, 221)" },
+        { name: "yellow_background", code: "rgb(251, 243, 219)" },
+        { name: "green_background", code: "rgb(237, 243, 236) " },
+        { name: "blue_background", code: "rgb(231, 243, 248)" },
+        { name: "purple_background", code: "rgba(244, 240, 247, 0.8)" },
+        { name: "pink_background", code: "rgba(249, 238, 243, 0.8)" },
+        { name: "red_background", code: "rgb(253, 235, 236)" },
+      ];
 
       var calloutStyle = {
-        backgroundColor: 'rgb(255, 255, 255)',
-        border: '1px solid rgba(0,0,0,.2)'
-      }
+        backgroundColor: "rgb(255, 255, 255)",
+        border: "1px solid rgba(0,0,0,.2)",
+      };
 
-      backGroundColorDict.forEach(element => {
+      backGroundColorDict.forEach((element) => {
         if (element.name == backGroundColor) {
-          calloutStyle = { backgroundColor: element.code }
+          calloutStyle = { backgroundColor: element.code };
         }
       });
 
       if (block.callout.text[0].annotations.bold) {
-        calloutStyle.fontWeight = 'bold'
+        calloutStyle.fontWeight = "bold";
       }
 
       return (
         <div className={styles.callout} style={calloutStyle}>
           <span className={styles.calloutEmoji}>{emoji}</span>
-          <p><Text text={text} /></p>
+          <p>
+            <Text text={text} />
+          </p>
         </div>
-      )
-    case 'video':
-      const videoUrl = value.external.url
+      );
+    case "video":
+      const videoUrl = value.external.url;
       return (
         <>
           <div className={styles.video}>
-            <iframe src={videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe
+              src={videoUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </>
-      )
-    case 'unsupported':
-      return
+      );
+    case "unsupported":
+      return;
     default:
-      return `❌ Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
-        })`;
+      return `❌ Unsupported block (${
+        type === "unsupported" ? "unsupported by Notion API" : type
+      })`;
   }
 };
 
 export default function Post({ page, blocks }) {
-  const hashTag = page && page.properties.HashTag.rich_text[0] ? page.properties.HashTag.rich_text[0].plain_text : ' '
-  const title = page && page.properties.Name.title[0] ? page.properties.Name.title[0].plain_text : ''
-  const publishedDate = page ? new Date(page.created_time).toLocaleDateString('ja-JP') : ''
-  const editedDate = page ? new Date(page.last_edited_time).toLocaleDateString('ja-JP') : ''
-  const authers = []
+  const hashTag =
+    page && page.properties.HashTag.rich_text[0]
+      ? page.properties.HashTag.rich_text[0].plain_text
+      : " ";
+  const title =
+    page && page.properties.Name.title[0]
+      ? page.properties.Name.title[0].plain_text
+      : "";
+  const publishedDate = page
+    ? new Date(page.created_time).toLocaleDateString("ja-JP")
+    : "";
+  const editedDate = page
+    ? new Date(page.last_edited_time).toLocaleDateString("ja-JP")
+    : "";
+  const authers = [];
   const router = useRouter();
 
   const shareUrl = hashTag
     ? `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`
-    : `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}`
+    : `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}`;
 
   if (page) {
     page.properties.Auther.multi_select.map((auther) => {
-      authers.push(auther.name)
-    })
+      authers.push(auther.name);
+    });
   }
 
   if (!page || !blocks) {
@@ -300,9 +321,12 @@ export default function Post({ page, blocks }) {
             <p>edited: {editedDate}</p>
             <p>published: {publishedDate}</p>
           </div>
-          <p>{`auther: `}
+          <p>
+            {`auther: `}
             {authers.map((auther, index) => (
-              <span key={index} style={{ margin: '0 5px' }}>{auther}</span>
+              <span key={index} style={{ margin: "0 5px" }}>
+                {auther}
+              </span>
             ))}
           </p>
         </div>
