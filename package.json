@@ -16,6 +16,7 @@
     "@next/bundle-analyzer": "^13.0.2",
     "@notionhq/client": "^0.4.4",
     "cheerio": "^1.0.0-rc.12",
+    "eslint-config-next": "^13.3.1",
     "fs": "^0.0.1-security",
     "jsdom": "^20.0.1",
     "net": "^1.0.2",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
+    "eslint": "^8.39.0",
     "next-sitemap": "^3.1.30"
   }
 }

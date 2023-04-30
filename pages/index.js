@@ -4,7 +4,6 @@ import Header from "../Component/Header";
 import BlogList from "../Component/BlogList";
 import Footer from "../Component/Footer";
 import HeadContent from "../Component/HeadContent"
-import { useState } from "react";
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 
@@ -31,7 +30,7 @@ export const getStaticProps = async () => {
     },
     // アクセスしたこの値の間は同じキャッシュを返す
     // この秒数を超すと新しいキャッシュを構築し直す
-    revalidate: 1
+    revalidate: 10
   }
 };
 
