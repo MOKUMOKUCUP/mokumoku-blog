@@ -16,13 +16,13 @@ export const Text = ({ text }) => {
     return null;
   }
 
-  return text.map((value) => {
+  return text.map((value, index) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
     if (text.content === "\n") {
-      return <br />;
+      return <br key={index} />;
     }
     return (
       <span
@@ -34,6 +34,7 @@ export const Text = ({ text }) => {
           underline ? styles.underline : "",
         ].join(" ")}
         style={color !== "default" ? { color } : {}}
+        key={index}
       >
         {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
       </span>
@@ -115,7 +116,7 @@ const renderBlock = (block) => {
       );
     case "child_page":
       return <p>{value.title}</p>;
-    case "image":
+    case "image": {
       const src =
         value.type === "external" ? value.external.url : value.file.url;
       const caption = value.caption || "";
@@ -136,6 +137,7 @@ const renderBlock = (block) => {
           )}
         </figure>
       );
+    }
     case "divider":
       return <hr key={id} />;
     case "quote":
@@ -152,7 +154,7 @@ const renderBlock = (block) => {
           </code>
         </pre>
       );
-    case "file":
+    case "file": {
       const src_file =
         value.type === "external" ? value.external.url : value.file.url;
       const splitSourceArray = src_file.split("/");
@@ -169,14 +171,16 @@ const renderBlock = (block) => {
           {caption_file && <figcaption>{caption_file}</figcaption>}
         </figure>
       );
-    case "bookmark":
+    }
+    case "bookmark": {
       const href = value.url;
       return (
         <a href={href} target="_brank" className={styles.bookmark}>
           {href}
         </a>
       );
-    case "table":
+    }
+    case "table": {
       const columList = [];
       const tableList = [];
       value.children.map((item) => {
@@ -202,7 +206,7 @@ const renderBlock = (block) => {
                     {item.map((i) => {
                       const text = [i] || "";
                       return (
-                        <td className={styles.tableContent}>
+                        <td className={styles.tableContent} key={index}>
                           <Text text={text} />
                         </td>
                       );
@@ -214,7 +218,8 @@ const renderBlock = (block) => {
           </table>
         </div>
       );
-    case "callout":
+    }
+    case "callout": {
       const emoji = block.callout.icon.emoji;
       const text = block.callout.text;
       const backGroundColor = block.callout.color;
@@ -253,7 +258,8 @@ const renderBlock = (block) => {
           </p>
         </div>
       );
-    case "video":
+    }
+    case "video": {
       const videoUrl = value.external.url;
       return (
         <>
@@ -268,12 +274,12 @@ const renderBlock = (block) => {
           </div>
         </>
       );
+    }
     case "unsupported":
       return;
     default:
-      return `❌ Unsupported block (${
-        type === "unsupported" ? "unsupported by Notion API" : type
-      })`;
+      return `❌ Unsupported block
+(${type === "unsupported" ? "unsupported by Notion API" : type})`;
   }
 };
 
@@ -292,18 +298,12 @@ export default function Post({ page, blocks }) {
   const editedDate = page
     ? new Date(page.last_edited_time).toLocaleDateString("ja-JP")
     : "";
-  const authers = [];
   const router = useRouter();
 
   const shareUrl = hashTag
     ? `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`
     : `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}`;
 
-  if (page) {
-    page.properties.Auther.multi_select.map((auther) => {
-      authers.push(auther.name);
-    });
-  }
 
   if (!page || !blocks) {
     return <div />;
@@ -321,14 +321,6 @@ export default function Post({ page, blocks }) {
             <p>edited: {editedDate}</p>
             <p>published: {publishedDate}</p>
           </div>
-          <p>
-            {`auther: `}
-            {authers.map((auther, index) => (
-              <span key={index} style={{ margin: "0 5px" }}>
-                {auther}
-              </span>
-            ))}
-          </p>
         </div>
 
         <section>
@@ -338,7 +330,7 @@ export default function Post({ page, blocks }) {
 
           <a
             href={shareUrl}
-            rel="nofollow"
+            rel="noreferrer"
             target="_blank"
             className={styles.share}
           >

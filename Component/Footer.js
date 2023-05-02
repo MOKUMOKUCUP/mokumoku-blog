@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -7,13 +7,21 @@ const Footer = () => {
         <address>
           <span>© MOKUMOKU 2022- All Rights Reserved.</span>
         </address>
-        <p>お問合せは
-          <Link href={'mailto:trombonelover8888@gmail.com'}>こちらまで</Link>
+        <p>
+          お問合せは
+          <Link href={"mailto:trombonelover8888@gmail.com"}>こちらまで</Link>
         </p>
-        <p>code is <Link href={'https://github.com/lovelovetrb/mokumoku-blog'}>here</Link> and created by <Link href={'https://twitter.com/lovelovetrb'}>Mizuki</Link> </p>
+        <p>
+          code is{" "}
+          <Link href={"https://github.com/lovelovetrb/mokumoku-blog"}>
+            here
+          </Link>{" "}
+          and created by{" "}
+          <Link href={"https://twitter.com/lovelovetrb"}>Mizuki</Link>{" "}
+        </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

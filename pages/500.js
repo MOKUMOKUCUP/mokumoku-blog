@@ -7,18 +7,17 @@ import HeadContent from "../Component/HeadContent";
 const Error500 = () => {
   return (
     <div>
-
-
-
-                <HeadContent title='404 - Not Found' />
+      <HeadContent title="404 - Not Found" />
       <Header />
-      <main className={`${styles.container}`} >
-        <h2 style={{ textAlign: 'center' }}>Sorry🙏 500 Error...</h2>
-        <p><Link href='/'>Topページに戻る</Link></p>
+      <main className={`${styles.container}`}>
+        <h2 style={{ textAlign: "center" }}>Sorry🙏 500 Error...</h2>
+        <p>
+          <Link href="/">Topページに戻る</Link>
+        </p>
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Error500
+export default Error500;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 import { useEffect, useState } from "react";
+import Heading from "./Heading";
 
 const BlogList = ({ posts, admin }) => {
   const [sortedPosts, setSoredPosts] = useState([]);
@@ -33,7 +34,7 @@ const BlogList = ({ posts, admin }) => {
 
   return (
     <>
-      <h2 className={`${styles.heading}`}>NEWS</h2>
+      <Heading text="NEWS" />
       <ol className={`${styles.posts}`}>
         {sortedPosts.map((post) => {
           const publish = post.properties.isPublish.checkbox;
@@ -42,16 +43,10 @@ const BlogList = ({ posts, admin }) => {
               return;
             }
           }
-
           const date =
             new Date(post.properties.publishDate.date.start).toLocaleDateString(
               "ja-JP"
             ) || "";
-          const authers = [];
-          post.properties.Auther.multi_select.map((auther) => {
-            authers.push(auther.name);
-          });
-
           return (
             <li key={post.id} className={`${styles.post}`}>
               {post.properties.pin.checkbox ? (
@@ -68,14 +63,6 @@ const BlogList = ({ posts, admin }) => {
               </h3>
               <div className={styles.postDescription}>
                 <p>{`Last Update: ${date}`}</p>
-                <p>
-                  {`auther: `}
-                  {authers.map((auther, index) => (
-                    <span key={index} style={{ margin: "0 5px" }}>
-                      {auther}
-                    </span>
-                  ))}
-                </p>
                 {admin ? <p>{`publish: ${publish}`}</p> : <></>}
               </div>
               <Link href={`/${post.id}`}>
