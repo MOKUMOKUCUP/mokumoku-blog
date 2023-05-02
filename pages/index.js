@@ -4,6 +4,7 @@ import Header from "../Component/Header";
 import BlogList from "../Component/BlogList";
 import Footer from "../Component/Footer";
 import HeadContent from "../Component/HeadContent";
+import ArchiveList from "../Component/AchiveList";
 
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 
@@ -14,6 +15,7 @@ export default function Home({ posts }) {
       <Header />
       <main className={`${styles.container}`}>
         <BlogList posts={posts} admin={false} />
+        <ArchiveList />
       </main>
       <Footer />
     </div>
