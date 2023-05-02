@@ -16,7 +16,7 @@ export default function Home({ posts }) {
       <Header />
       <main className={`${styles.container}`}>
         <BlogList posts={posts} admin={false} />
-        <ArchiveList posts={posts} />
+        {/*<ArchiveList posts={posts} />*/}
       </main>
       <Footer />
     </div>
