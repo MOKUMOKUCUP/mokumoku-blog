@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Text } from "../pages/[id]";
 import styles from "../pages/index.module.css";
 import { useEffect, useState } from "react";
+import Heading from "./Heading";
 
 const BlogList = ({ posts, admin }) => {
   const [sortedPosts, setSoredPosts] = useState([]);
@@ -33,7 +34,7 @@ const BlogList = ({ posts, admin }) => {
 
   return (
     <>
-      <h2 className={`${styles.heading}`}>NEWS</h2>
+      <Heading text="NEWS" />
       <ol className={`${styles.posts}`}>
         {sortedPosts.map((post) => {
           const publish = post.properties.isPublish.checkbox;

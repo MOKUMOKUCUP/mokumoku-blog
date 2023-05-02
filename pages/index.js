@@ -9,13 +9,14 @@ import ArchiveList from "../Component/AchiveList";
 export const postDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 
 export default function Home({ posts }) {
+
   return (
     <div>
       <HeadContent title="Top" />
       <Header />
       <main className={`${styles.container}`}>
         <BlogList posts={posts} admin={false} />
-        <ArchiveList />
+        <ArchiveList posts={posts} />
       </main>
       <Footer />
     </div>
