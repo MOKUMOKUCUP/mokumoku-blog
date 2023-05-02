@@ -43,12 +43,10 @@ const BlogList = ({ posts, admin }) => {
               return;
             }
           }
-
           const date =
             new Date(post.properties.publishDate.date.start).toLocaleDateString(
               "ja-JP"
             ) || "";
-
           return (
             <li key={post.id} className={`${styles.post}`}>
               {post.properties.pin.checkbox ? (
