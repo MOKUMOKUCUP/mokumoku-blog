@@ -22,7 +22,7 @@
 
 .imageContainer span {
   /* ⭐️ Next12未満では span -> div に変更する必要があります。詳細は後ほど説明します。 */
-  position: unset !important;
+  position: relative !important;
 }
 
 .image {

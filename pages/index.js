@@ -32,6 +32,6 @@ export const getStaticProps = async () => {
     },
     // アクセスしたこの値の間は同じキャッシュを返す
     // この秒数を超すと新しいキャッシュを構築し直す
-    revalidate: 10,
+    revalidate: 30,
   };
 };

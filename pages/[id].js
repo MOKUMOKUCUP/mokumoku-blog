@@ -46,7 +46,6 @@ const renderNestedList = (block) => {
   const { type } = block;
   const value = block[type];
   if (!value) return null;
-
   const isNumberedList = value.children[0].type === "numbered_list_item";
 
   if (isNumberedList) {
@@ -63,25 +62,25 @@ const renderBlock = (block) => {
     case "paragraph":
       return (
         <p className={`${styles.paragraph}`}>
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </p>
       );
     case "heading_1":
       return (
         <h1 className={`${styles.heading} ${styles.headDesign}`}>
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </h1>
       );
     case "heading_2":
       return (
         <h2 className={`${styles.heading} ${styles.headDesign}`}>
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </h2>
       );
     case "heading_3":
       return (
         <h3 className={styles.heading}>
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
@@ -89,7 +88,7 @@ const renderBlock = (block) => {
       return (
         <div style={{ margin: "25px" }}>
           <li className={styles.list}>
-            <Text text={value.text} />
+            <Text text={value.rich_text} />
             {!!value.children && renderNestedList(block)}
           </li>
         </div>
@@ -99,7 +98,7 @@ const renderBlock = (block) => {
         <div>
           <label htmlFor={id}>
             <input type="checkbox" id={id} defaultChecked={value.checked} />{" "}
-            <Text text={value.text} />
+            <Text text={value.rich_text} />
           </label>
         </div>
       );
@@ -107,7 +106,7 @@ const renderBlock = (block) => {
       return (
         <details>
           <summary>
-            <Text text={value.text} />
+            <Text text={value.rich_text} />
           </summary>
           {value.children?.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -143,7 +142,7 @@ const renderBlock = (block) => {
     case "quote":
       return (
         <blockquote style={{ margin: "20px 15px" }} key={id}>
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </blockquote>
       );
     case "code":
@@ -203,10 +202,10 @@ const renderBlock = (block) => {
               {tableList.slice().map((item, index) => {
                 return (
                   <tr key={index}>
-                    {item.map((i) => {
+                    {item.map((i, j) => {
                       const text = [i] || "";
                       return (
-                        <td className={styles.tableContent} key={index}>
+                        <td className={styles.tableContent} key={j}>
                           <Text text={text} />
                         </td>
                       );
@@ -304,7 +303,6 @@ export default function Post({ page, blocks }) {
     ? `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}&hashtags=${hashTag}`
     : `https://twitter.com/share?url=https://mokumoku-blog.vercel.app${router.asPath}&text=${title}`;
 
-
   if (!page || !blocks) {
     return <div />;
   }
@@ -388,6 +386,6 @@ export const getStaticProps = async (context) => {
       page,
       blocks: blocksWithChildren,
     },
-    revalidate: 1, //ISR...前回から何秒以内のアクセスを無視するか指定します。
+    revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
