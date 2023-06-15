@@ -5,7 +5,7 @@ import { isBrowser, isMobile, isTablet } from "react-device-detect";
 
 const Header = () => {
   const [boxStyle, setBoxStyle] = useState({
-    color: "#133D9F",
+    color: "#000000",
     fontSize: "2.5rem",
     cursor: "pointer",
     display: "flex",
