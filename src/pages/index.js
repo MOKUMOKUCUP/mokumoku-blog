@@ -26,7 +26,7 @@ export default function Home({ posts }) {
 //ISRを追加:バックグラウンドでrevalidateに設定した秒数を超すとHTMLの再レンダリングを行なってくれるもの
 // 動的ページ（このようなブログサイト）に有用
 export const getStaticProps = async () => {
-  const allPosts = await getDatabase(postDatabaseId);
+  const allPosts = await getDatabase(postDatabaseId());
   const publishposts = allPosts.filter((post) => {
     return post.properties.isPublish.checkbox === true;
   });

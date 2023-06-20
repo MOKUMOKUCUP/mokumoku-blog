@@ -7,6 +7,7 @@ const notion = new Client({
 
 //getDatabaseを追加
 export const getDatabase = async (databaseId) => {
+  console.log("databaseId", databaseId);
   const response = await notion.databases.query({
     database_id: databaseId,
   });
