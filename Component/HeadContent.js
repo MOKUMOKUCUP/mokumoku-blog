@@ -13,8 +13,8 @@ const HeadContent = ({ title }) => {
 
   return (
     <Head>
-      <title>MOKUMOKU - {title}</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>{`MOKUMOKU - ${title}`}</title>
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       {/* TODO：description 記述 */}
       <meta name="description" content="MOKUMOKUのホームページです" />

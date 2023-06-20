@@ -1,21 +1,20 @@
-import styles from "src/styles/index.module.css";
+import styles from "styles/index.module.css";
 
-import Header from "src/Component/Header";
-import BlogList from "src/Component/BlogList";
-import Footer from "src/Component/Footer";
-import HeadContent from "src/Component/HeadContent";
+import Header from "Component/Header";
+import BlogList from "Component/BlogList";
+import Footer from "Component/Footer";
+import HeadContent from "Component/HeadContent";
 
-import { getDatabase } from "src/lib/notion";
-import { postDatabaseId } from "src/lib/ids";
+import { getDatabase } from "lib/notion";
+import { postDatabaseId } from "lib/ids";
 
-export default function Home({ posts }) {
-
+export default function Home({ posts = null }) {
   return (
     <div>
       <HeadContent title="Top" />
       <Header />
       <main className={`${styles.container}`}>
-        <BlogList posts={posts}/>
+        <BlogList posts={posts} />
         {/*<ArchiveList posts={posts} />*/}
       </main>
       <Footer />
@@ -26,7 +25,8 @@ export default function Home({ posts }) {
 //ISRを追加:バックグラウンドでrevalidateに設定した秒数を超すとHTMLの再レンダリングを行なってくれるもの
 // 動的ページ（このようなブログサイト）に有用
 export const getStaticProps = async () => {
-  const allPosts = await getDatabase(postDatabaseId());
+  const databaseId = await postDatabaseId();
+  const allPosts = await getDatabase(databaseId);
   const publishposts = allPosts.filter((post) => {
     return post.properties.isPublish.checkbox === true;
   });

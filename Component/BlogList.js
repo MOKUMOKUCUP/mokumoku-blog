@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Text } from "src/pages/[id]";
-import styles from "src/Component/BlogList.module.css";
+import { Text } from "pages/[id]";
+import styles from "Component/BlogList.module.css";
 import { useEffect, useState } from "react";
-import Heading from "src/Component/Heading";
+import Heading from "Component/Heading";
 
 const BlogList = ({ posts}) => {
   const [sortedPosts, setSoredPosts] = useState([]);

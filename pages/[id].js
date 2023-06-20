@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
-import { getDatabase, getPage, getBlocks } from "src/lib/notion";
-import { postDatabaseId } from "src/lib/ids";
+import { getDatabase, getPage, getBlocks } from "lib/notion";
+import { postDatabaseId } from "lib/ids";
 
-import styles from "src/styles/post.module.css";
+import styles from "styles/post.module.css";
 
-import Header from "src/Component/Header";
-import Footer from "src/Component/Footer";
-import HeadContent from "src/Component/HeadContent";
+import Header from "Component/Header";
+import Footer from "Component/Footer";
+import HeadContent from "Component/HeadContent";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -270,7 +270,6 @@ const renderBlock = (block) => {
             <iframe
               src={videoUrl}
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -286,7 +285,7 @@ const renderBlock = (block) => {
   }
 };
 
-export default function Post({ page, blocks }) {
+export default function Post({ page = null, blocks = null }) {
   const hashTag =
     page && page.properties.HashTag.rich_text[0]
       ? page.properties.HashTag.rich_text[0].plain_text
@@ -351,7 +350,8 @@ export default function Post({ page, blocks }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(postDatabaseId());
+  const databaseId = await postDatabaseId();
+  const database = await getDatabase(databaseId);
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
     fallback: "blocking",

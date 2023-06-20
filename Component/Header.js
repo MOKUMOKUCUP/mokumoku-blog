@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "src/Component/Header.module.css";
+import styles from "Component/Header.module.css";
 import Link from "next/link";
 import { isBrowser, isMobile, isTablet } from "react-device-detect";
 
