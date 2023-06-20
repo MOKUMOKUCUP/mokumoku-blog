@@ -1,0 +1,15 @@
+.heading {
+  border-bottom: solid 3px rgb(163, 182, 227);
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.heading:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px rgb(19, 61, 159);
+  bottom: -3px;
+  width: 20%;
+}
+

@@ -33,11 +33,6 @@ const HeadContent = ({ title }) => {
       <meta name="twitter:card" content="summary" />
       <meta property="og:site_name" content="mokumoku-blog" />
       <meta property="og:locale" content="ja_JP" />
-      <link rel="icon" href="/icon-192x192.png" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans+JP&display=swap"
-        rel="stylesheet"
-      />
     </Head>
   );
 };

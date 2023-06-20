@@ -1,0 +1,16 @@
+.header {
+  font-family: "Mochiy Pop One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.header p {
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+

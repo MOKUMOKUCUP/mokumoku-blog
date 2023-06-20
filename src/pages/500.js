@@ -1,8 +1,10 @@
-import styles from "./index.module.css";
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
+
 import Link from "next/link";
-import HeadContent from "../Component/HeadContent";
+
+import styles from "src/styles/index.module.css";
+import Header from "src/Component/Header";
+import Footer from "src/Component/Footer";
+import HeadContent from "src/Component/HeadContent";
 
 const Error500 = () => {
   return (

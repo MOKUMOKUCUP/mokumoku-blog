@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import styles from "../pages/index.module.css";
+import styles from "src/Component/Header.module.css";
 import Link from "next/link";
 import { isBrowser, isMobile, isTablet } from "react-device-detect";
 
 const Header = () => {
   const [boxStyle, setBoxStyle] = useState({
-    color: "#000000",
+    color: "#1340B8",
     fontSize: "2.5rem",
     cursor: "pointer",
     display: "flex",
@@ -29,7 +29,7 @@ const Header = () => {
     <header className={styles.header}>
       {isBrowser && !isTablet && (
         <>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <div style={boxStyle}>
               <span className="box">M</span>
               <span className="box">O</span>
@@ -46,7 +46,7 @@ const Header = () => {
       )}
       {isMobile && (
         <>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <h1 style={boxStyle}>MOKUMOKU</h1>
           </Link>
           <p style={{ fontSize: ".8rem" }}>MOKUMOKU CUP 実行委員会</p>

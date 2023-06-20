@@ -1,13 +1,17 @@
 import { Fragment } from "react";
-import { getDatabase, getPage, getBlocks } from "../lib/notion";
-import Link from "next/link";
-import { postDatabaseId } from "./index.js";
-import styles from "./post.module.css";
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
-import Image from "next/image";
-import HeadContent from "../Component/HeadContent";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+
+import { getDatabase, getPage, getBlocks } from "src/lib/notion";
+import { postDatabaseId } from "src/lib/ids";
+
+import styles from "src/styles/post.module.css";
+
+import Header from "src/Component/Header";
+import Footer from "src/Component/Footer";
+import HeadContent from "src/Component/HeadContent";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
@@ -163,7 +167,7 @@ const renderBlock = (block) => {
         <figure>
           <div className={styles.file}>
             📎{" "}
-            <Link href={src_file} passHref>
+            <Link href={src_file} passHref legacyBehavior>
               {lastElementInArray.split("?")[0]}
             </Link>
           </div>
@@ -336,8 +340,8 @@ export default function Post({ page, blocks }) {
             <span>TwitterでShare！</span>
           </a>
 
-          <Link href="/">
-            <a className={styles.back}>← Go home</a>
+          <Link href="/" className={styles.back}>
+            ← Go home
           </Link>
         </section>
       </article>
@@ -350,7 +354,7 @@ export const getStaticPaths = async () => {
   const database = await getDatabase(postDatabaseId);
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
