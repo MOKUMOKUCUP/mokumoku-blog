@@ -1,0 +1,289 @@
+.container {
+  padding: 0 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.container h1 {
+  font-size: 32px;
+}
+
+.container h3 {
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgb(19, 61, 159);
+  margin-bottom: 2rem;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.imageContainer span {
+  /* ⭐️ Next12未満では span -> div に変更する必要があります。詳細は後ほど説明します。 */
+  position: unset !important;
+}
+
+.image {
+  position: relative !important;
+  width: 100% !important;
+  height: unset !important;
+}
+
+.figcaption {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.8rem;
+}
+
+.figcaption a {
+  color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.articleExp {
+  text-align: right;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date p {
+  margin-left: 10px;
+}
+
+.list {
+  line-height: 1.8rem;
+}
+
+.callout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  color: rgba(55, 53, 47, 1);
+  margin-top: 1rem;
+  padding-right: 1rem;
+}
+
+.calloutEmoji {
+  margin: 0.5rem;
+}
+
+.container figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container figcaption {
+  opacity: 0.6;
+}
+
+.nameIcon {
+  padding: 1rem;
+}
+
+.name {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 1rem 1rem 3rem;
+  color: #505050;
+  border-radius: 100vh 0 0 100vh;
+  background: #dbedf8;
+}
+
+.name:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  content: "";
+  border-radius: 50%;
+  background: #fff;
+}
+
+.paragraph {
+  line-height: 2rem;
+  margin: 1.5rem 0;
+}
+
+.heading {
+  margin-top: 3rem;
+}
+
+.tableContent a {
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  width: 35%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  color: #1da1f2;
+  width: 15%;
+  margin-right: 20px;
+}
+
+.share span {
+  position: relative;
+  background-color: #1da1f2;
+  padding: 10px;
+  color: #fff;
+  /* margin: 15px; */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.share span::before {
+  content: "";
+  position: absolute;
+  border: 8px solid transparent;
+  border-right: 10px solid #1da1f2;
+  top: 30%;
+  left: -18px;
+}
+
+/* 480px以下に適用されるCSS（スマホ用） */
+@media screen and (max-width: 480px) {
+  .heading {
+    margin-top: 1rem;
+  }
+
+  .container h1 {
+    font-size: 20px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .paragraph {
+    font-size: 0.85rem;
+  }
+
+  .articleExp {
+    font-size: 0.75rem;
+  }
+
+  .share {
+    width: 55%;
+  }
+}
+
+.headDesign {
+  padding: 0.25em 0.5em;
+  /*上下 左右の余白*/
+  color: #000;
+  /*文字色*/
+  background: #f7f6f6;
+  /*背景透明に*/
+  border-left: solid 7px rgb(19, 61, 159);
+  /*左線*/
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  font-family: monospace;
+  background-color: rgb(242, 242, 242);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pre {
+  background-color: rgb(242, 242, 242);
+  padding: 2px 4px;
+  margin: 20px 0;
+  line-height: 2.3;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.code_block {
+  padding: 20px;
+  font-family: monospace;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file {
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  background: rgba(55, 53, 47, 0.08);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bookmark {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .code {
+    background-color: rgb(15, 8, 28);
+  }
+
+  .file:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .pre {
+    background-color: rgb(15, 8, 28);
+  }
+} */

@@ -1,0 +1,69 @@
+.container {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  padding: 40px 0 20px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.list {
+  padding: 30px;
+  width: 32%;
+  background-color: rgba(13, 62, 255, 0.05);
+  border: 3px dotted rgba(13, 62, 255, 0.3);
+  border-radius: 10px;
+}
+
+.listItem {
+  padding-left: 10px;
+}
+
+.listImage {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.listImage img {
+  border-radius: 30px;
+}
+
+.twitterIcon {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.plus {
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+
+/* 959px以下に適用されるCSS（タブレット用） */
+@media screen and (max-width: 959px) {
+}
+
+/* 480px以下に適用されるCSS（スマホ用） */
+@media screen and (max-width: 480px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .list {
+    padding: 30px;
+    width: 100%;
+    margin: 1rem;
+  }
+}
