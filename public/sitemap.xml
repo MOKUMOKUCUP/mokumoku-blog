@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://mokumoku-blog.vercel.app</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/1ee12d54-51e5-4528-b045-d3e929e5c9b7</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/631d6971-6d04-47ff-8277-056d4d1cf938</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/60c0332b-a56f-4399-bbd1-78af6a8ad047</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/5c99e70f-f531-47d2-b043-406405da27be</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/bd051139-1601-4c8a-885f-1825459272e8</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/21038c24-188c-4f64-a229-4a55081705fe</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/90f1dbeb-fcb0-4858-b6a0-2cd9e6e8893d</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/76678f02-fc70-422f-8fd3-cbc46b68f83c</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/24dcf92f-27f6-4c00-bea7-113f4fd3e553</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/6f9bed08-963b-460f-83db-a5867000d99f</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/72299236-219b-49c5-ae89-3a378e27376f</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/545b72e5-3950-4d43-b11b-63e288b5e98c</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/2c978c95-d9b6-4e5f-8019-9b2cc9c486c2</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/e99ee6b7-1af4-43b8-b976-534ad11c3969</loc><lastmod>2023-10-06T10:01:27.034Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app</loc><lastmod>2023-10-06T10:09:41.651Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/1ee12d54-51e5-4528-b045-d3e929e5c9b7</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/631d6971-6d04-47ff-8277-056d4d1cf938</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/60c0332b-a56f-4399-bbd1-78af6a8ad047</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/5c99e70f-f531-47d2-b043-406405da27be</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/bd051139-1601-4c8a-885f-1825459272e8</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/21038c24-188c-4f64-a229-4a55081705fe</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/90f1dbeb-fcb0-4858-b6a0-2cd9e6e8893d</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/e99ee6b7-1af4-43b8-b976-534ad11c3969</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

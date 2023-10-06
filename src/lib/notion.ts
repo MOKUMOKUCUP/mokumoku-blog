@@ -12,13 +12,14 @@ export const getDatabase = async (databaseId) => {
     database_id: databaseId,
   });
   const posts = response.results;
+
   // 非公開ページのフィルタリング
-  posts.filter((post) => {
+  const filterPosts = posts.filter((post) => {
     // @ts-ignore
     return post.properties?.isPublish.checkbox === true;
   });
 
-  return posts;
+  return filterPosts;
 };
 
 export const getPage = async (pageId) => {
