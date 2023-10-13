@@ -17,7 +17,7 @@ const Footer = () => {
             here
           </Link>{" "}
           and created by{" "}
-          <Link href={"https://twitter.com/lovelovetrb"}>Mizuki</Link>{" "}
+          <Link href={"https://twitter.com/lovelovetrb"}>RISUman</Link>{" "}
         </p>
       </div>
     </footer>

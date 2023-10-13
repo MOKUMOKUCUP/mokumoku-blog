@@ -64,7 +64,6 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
-  console.log(value);
 
   switch (type) {
     case "paragraph":
@@ -285,6 +284,7 @@ const renderBlock = (block) => {
 };
 
 export default function Post({ page, blocks }) {
+  console.log(page);
   const hashTag =
     page && page.properties.HashTag.rich_text[0]
       ? page.properties.HashTag.rich_text[0].plain_text
@@ -293,9 +293,12 @@ export default function Post({ page, blocks }) {
     page && page.properties.Name.title[0]
       ? page.properties.Name.title[0].plain_text
       : "";
-  const publishedDate = page
-    ? new Date(page.created_time).toLocaleDateString("ja-JP")
-    : "";
+  const publishedDate =
+    page && page.properties.publishDate?.date.start
+      ? new Date(page.properties.publishDate.date.start).toLocaleDateString(
+        "ja-JP"
+      )
+      : "";
   const editedDate = page
     ? new Date(page.last_edited_time).toLocaleDateString("ja-JP")
     : "";
@@ -335,7 +338,6 @@ export default function Post({ page, blocks }) {
             <FontAwesomeIcon className={styles.icon} icon={faTwitter} />
             <span>TwitterでShare！</span>
           </Link>
-
           <Link href="/" className={styles.back}>
             ← Go home
           </Link>
