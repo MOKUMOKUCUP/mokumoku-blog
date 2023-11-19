@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://mokumoku-blog.vercel.app</loc><lastmod>2023-10-06T10:09:41.651Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/1ee12d54-51e5-4528-b045-d3e929e5c9b7</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/631d6971-6d04-47ff-8277-056d4d1cf938</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/60c0332b-a56f-4399-bbd1-78af6a8ad047</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/5c99e70f-f531-47d2-b043-406405da27be</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/bd051139-1601-4c8a-885f-1825459272e8</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/21038c24-188c-4f64-a229-4a55081705fe</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/90f1dbeb-fcb0-4858-b6a0-2cd9e6e8893d</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mokumoku-blog.vercel.app/e99ee6b7-1af4-43b8-b976-534ad11c3969</loc><lastmod>2023-10-06T10:09:41.652Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app</loc><lastmod>2023-11-19T03:49:28.036Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/3d043166-c8a6-4dc4-82c6-01658913f4d8</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/44673789-d97d-4686-9ae4-3f56e13232e6</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/f136f0a2-c903-4b35-a89d-f791992ce2b5</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/1ee12d54-51e5-4528-b045-d3e929e5c9b7</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/631d6971-6d04-47ff-8277-056d4d1cf938</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/5c99e70f-f531-47d2-b043-406405da27be</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/bd051139-1601-4c8a-885f-1825459272e8</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/21038c24-188c-4f64-a229-4a55081705fe</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/90f1dbeb-fcb0-4858-b6a0-2cd9e6e8893d</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mokumoku-blog.vercel.app/e99ee6b7-1af4-43b8-b976-534ad11c3969</loc><lastmod>2023-11-19T03:49:28.037Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

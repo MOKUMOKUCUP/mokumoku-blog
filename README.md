@@ -14,7 +14,7 @@
   - Vercel
 
 ### 3. 開発・運営
-  [Mizuki](https://twitter.com/lovelovetrb)
+  [RISUman](https://twitter.com/lovelovetrb)
 
 
 __サイトはこちらから:__ [https://mokumoku-blog.vercel.app/](https://mokumoku-blog.vercel.app/)
