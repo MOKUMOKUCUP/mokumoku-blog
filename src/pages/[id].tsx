@@ -19,6 +19,9 @@ export const Text = ({ text }) => {
   }
 
   return text.map((value, index) => {
+    if (value == null) {
+      return null;
+    }
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
